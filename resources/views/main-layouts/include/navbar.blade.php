@@ -41,7 +41,7 @@
                                 <a class="dropdown-item" href="{{ url('show-customer/'.Auth::id()) }}"> My Profile </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#Setting"> Setting </a>
+                                <a class="dropdown-item" href="{{ url('edit-customer/'.Auth::id()) }}"> Setting </a>
                             </li>
                             <li><hr class="dropdown-divider"></li>
                             <li>

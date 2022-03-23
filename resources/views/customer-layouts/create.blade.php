@@ -13,7 +13,7 @@
                 <div class="card-header bg-dark text-light">{{ __('User Info Confirmation') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('store-customer') }}"  method="POST">
+                    <form method="POST" action="{{ url('store-customer/'.Auth::id()) }}"  method="POST">
                         @csrf
                         
                         <div class="row mb-3">

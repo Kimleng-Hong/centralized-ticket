@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('user_role',['master','company','employee','customer']);
+            $table->enum('user_role',['user','customer','master','company','employee']);
             $table->string('phone')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->timestamps();
+
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')

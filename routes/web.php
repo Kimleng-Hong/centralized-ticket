@@ -27,8 +27,8 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index']);
 
 //Customer Info Registration Route
-Route::get('/create-customer', [CustomerController::class, 'create']);
-Route::post('store-customer', [CustomerController::class, 'store']);
+Route::get('/create-customer/{id}', [CustomerController::class, 'create']);
+Route::post('store-customer/{id}', [CustomerController::class, 'store']);
 Route::get('/show-customer/{id}', [CustomerController::class, 'show']);
 Route::get('/edit-customer/{id}', [CustomerController::class, 'edit']);
 Route::put('update-customer/{id}', [CustomerController::class, 'update']);

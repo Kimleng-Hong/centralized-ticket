@@ -47,14 +47,14 @@
 
                                 <table class="table table-borderless">
                                     <tbody>
-                                        <tr>
+                                        {{-- <tr>
                                             <th>First Name: </th>
                                             <td><input type="text" name="first_name" value="{{ $customer->customer->first_name }}" class="form form-control"></td>
                                         </tr>
                                         <tr>
                                             <th>Last Name: </th>
                                             <td><input type="text" name="last_name" value="{{ $customer->customer->last_name }}" class="form form-control"></td>
-                                        </tr>
+                                        </tr> --}}
                                         <tr>
                                             <th>Phone Number:</th>
                                             <td><input type="text" name="phone" value="{{ $customer->phone }}" class="form form-control"></td>
