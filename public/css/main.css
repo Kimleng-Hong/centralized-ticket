@@ -1,0 +1,67 @@
+/* root section */
+:root {
+    --white: #f5f5f5;
+    --green: #25c078;
+    --facebook: #097ceb;
+    --instagram: #db2f75;
+    --linkin: #2662a9;
+}
+
+body {
+    background: #eeeeee;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.text-green {
+    color: var(--green) !important;
+}
+/* root section */
+
+/* navbar section */
+.nav-link {
+    color: var(--white) !important;
+}
+
+.nav-link:hover {
+    color: var(--green) !important;
+}
+
+.btn {
+    border-radius: 0.75rem;
+}
+
+.fa-solid {
+    color: var(--green);
+}
+/* navbar section */
+
+/* footer section */
+footer {
+    box-shadow: 0 -0.5vw 1.5vw rgba(0, 0, 0, 0.1);
+}
+
+footer .fab {
+    font-size: 175%;
+}
+
+footer .fa-facebook {
+    color: var(--facebook);
+}
+
+footer .fa-instagram {
+    color: var(--instagram);
+}
+
+footer .fa-linkedin {
+    color: var(--linkin);
+}
+
+footer .fa-github {
+    color: var(--white);
+    background: black;
+    border-radius: 50%;
+}
+/* footer section */

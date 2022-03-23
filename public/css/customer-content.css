@@ -1,0 +1,26 @@
+/* Content Section */
+.content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border-bottom: 0.25rem solid var(--green);
+}
+
+.content .head {
+    border-bottom: 0.05rem solid #bbbbbb;
+    padding-bottom: 1rem;
+}
+
+.content .head h4 {
+    color: #555;
+}
+
+.content .head .fa-solid {
+    color: #fff;
+}
+/* Content Section */
+@media (max-width: 576px) {
+    .content .head h4 {
+        font-size: 125% !important;
+    }
+}
