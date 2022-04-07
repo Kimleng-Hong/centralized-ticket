@@ -36,8 +36,5 @@ class HomeController extends Controller
         elseif (Auth::user()->user_role == "customer") {
             return view('customer-layouts.index');
         }
-
-
-        
     }
 }

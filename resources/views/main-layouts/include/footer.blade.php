@@ -49,7 +49,7 @@
             <i class="fas fa-envelope text-green me-3"></i>
             tinhsroul@test.com
           </p>
-          <p><i class="fas fa-phone text-green me-3"></i> +855 11 22-22-33</p>
+          <p><i class="fas fa-phone text-green me-3"></i> +855 (11) 666-999 </p>
         </div>
         <!-- Grid column -->
       </div>
