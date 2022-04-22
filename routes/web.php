@@ -33,5 +33,10 @@ Route::get('/edit-customer/{id}', [CustomerController::class, 'edit']);
 Route::put('update-customer/{id}', [CustomerController::class, 'update']);
 
 //Ticket Route
-Route::get('/ticket-list', [TicketController::class, 'index']);
+Route::get('/list-ticket/{id}', [TicketController::class, 'index']);
+Route::get('/create-ticket/{id}', [TicketController::class, 'create']);
+Route::post('store-ticket/{id}', [TicketController::class, 'store']);
+Route::get('/show-ticket/{id}', [TicketController::class, 'show']);
+Route::get('/edit-ticket/{id}', [TicketController::class, 'edit']);
+Route::put('update-ticket/{id}', [TicketController::class, 'update']);
 
