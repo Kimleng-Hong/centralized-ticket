@@ -13,5 +13,6 @@ class Ticket extends Model
         //Todo 'company_id',
         'name',
         'price',
+        'added_date'
     ];
 }

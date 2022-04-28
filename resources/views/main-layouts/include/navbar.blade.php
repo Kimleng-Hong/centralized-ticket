@@ -10,7 +10,7 @@
                     <a class="nav-link" aria-current="page" href="{{ url('/') }}">Home <i class="fa-solid fa-house ps-1"></i></a>
                 </li>
                 <li class="nav-item pe-2">
-                    <a class="nav-link" aria-current="page" href="#">Tickets <i class="fa-solid fa-ticket ps-1"></i> </a>
+                    <a class="nav-link" aria-current="page" href="{{ url('list-ticket') }} ">Tickets <i class="fa-solid fa-ticket ps-1"></i> </a>
                 </li>
                 <li class="nav-item pe-2">
                     <a class="nav-link" aria-current="page" href="#">About Us <i class="fa-solid fa-circle-question ps-1"></i></a>

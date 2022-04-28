@@ -68,3 +68,11 @@ footer .fa-github {
     border-radius: 50%;
 }
 /* footer section */
+
+@media (max-width: 768px) {
+    footer {
+        position: relative;
+        width: 100%;
+        box-shadow: 0 -0.5vw 1.5vw rgba(0, 0, 0, 0.1);
+    }
+}

@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('name');
+            $table->string('price');
+            $table->dateTime('added_date');
             $table->timestamps();
         });
     }
