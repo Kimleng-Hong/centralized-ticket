@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('branch_name');
-            $table->string('industry_id');
-            $table->string('ownership_type_id');
+            // $table->string('industry_id');
+            // $table->string('ownership_type_id');
             $table->string('description');
             $table->string('address');
             $table->string('employees_total');

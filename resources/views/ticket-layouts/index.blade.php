@@ -29,10 +29,7 @@
                             </div>
                         </div>
                         <div class="right col-md-3 col-sm-4 d-flex justify-content-end"> 
-                            <p>-</p>
-                            <p>1</p>
-                            <p>+</p>
-                            <p>Add</p>
+                            <a class="btn btn-primary" href="#edit-ticket/{id}"> Edit <i class="fa-solid fa-pen ps-2"></i> </a>
                         </div>
                     </div>
                 </div>
