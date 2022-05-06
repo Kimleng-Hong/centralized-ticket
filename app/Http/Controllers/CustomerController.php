@@ -27,7 +27,7 @@ class CustomerController extends Controller
     public function create($id)
     {   
         $user = User::find($id);
-        return view('customer-layouts.create', compact('user'));
+        return view('customer.create', compact('user'));
     }
 
     /**
@@ -60,7 +60,7 @@ class CustomerController extends Controller
     public function show($id)
     {
         $customer = User::find($id);
-        return view('customer-layouts.show', compact('customer'));
+        return view('customer.show', compact('customer'));
     }
 
     /**
@@ -72,7 +72,7 @@ class CustomerController extends Controller
     public function edit($id)
     {   
         $customer = User::find($id);
-        return view('customer-layouts.edit', compact('customer'));
+        return view('customer.edit', compact('customer'));
     }
 
     /**

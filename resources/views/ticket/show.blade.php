@@ -1,4 +1,4 @@
-@extends('main-layouts.app')
+@extends('main.app')
 
 @section('content')
 <div class="customer-information container col-11">
@@ -8,7 +8,7 @@
     @endif
 
     <div class="row py-3">
-        @include("include-layouts.side-navbar")
+        @include("extra.side-navbar")
         <div class="col-md-9 col-12 my-3">
             <div class="content">
                 <div class="head d-flex justify-content-between align-items-center mb-5">
