@@ -25,11 +25,11 @@
 </head>
 <body>
     <div id="app">
-        @include('main-layouts.include.navbar')
+        @include('main.include.navbar')
         <main class="py-4">
             @yield('content')
         </main>
-        @include('main-layouts.include.footer')
+        @include('main.include.footer')
     </div>
 </body>
 </html>

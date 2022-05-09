@@ -16,20 +16,20 @@ return new class extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('branch_name');
-            // $table->string('industry_id');
-            // $table->string('ownership_type_id');
+            // $table->string('branch_name');
             $table->string('description');
+            // $table->string('industry_id');
             $table->string('address');
             $table->string('employees_total');
-            $table->string('established_in');
+            // $table->string('established_in');
             $table->string('phone');
             $table->string('email');
             $table->string('website');
             $table->string('facebook');
             $table->string('instagram');
             $table->string('linkedin');
-            $table->string('country_state');
+            // $table->string('country_state');
+            // $table->string('city_state');
             $table->timestamps();
         });
     }

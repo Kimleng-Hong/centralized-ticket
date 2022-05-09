@@ -15,12 +15,32 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('user_role',['user','customer','employee','company','master']);
+            $table->enum('user_role',['user','customer','employee','admin','master']);
             $table->string('phone')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->timestamps();
+        });
+
+        Schema::create('admin', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            // $table->string('branch_name');
+            // $table->string('industry_id');
+            $table->string('description');
+            $table->string('address');
+            $table->string('employees_total');
+            // $table->string('established_in');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('website');
+            $table->string('facebook');
+            $table->string('instagram');
+            $table->string('linkedin');
+            // $table->string('country_state');
+            // $table->string('city_state');
             $table->timestamps();
         });
 
@@ -36,6 +56,7 @@ return new class extends Migration
                 ->on('users')
                 ->onDelete('cascade');
         });
+
     }
 
     /**
