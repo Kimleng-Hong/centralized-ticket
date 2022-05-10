@@ -18,6 +18,15 @@
 .content .fa-solid {
     color: #fff;
 }
+
+.content .body .row .box {
+    background: #e7e7e7;
+    border-radius: 0.75rem;
+}
+
+.content .body .row .box h4 {
+    margin: 0;
+}
 /* Content Section */
 
 @media (max-width: 576px) {

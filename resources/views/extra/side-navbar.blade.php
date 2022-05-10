@@ -1,20 +1,20 @@
 <div class="col-md-3 my-3">
     <div class="side-navbar">
         <ul class="list">
-            <li class="item pe-2">
+            <li>
                 <a aria-current="page" href="{{ url('/') }}"> <i class="fa-solid fa-house pe-3"></i> Home </a>
             </li>
-            <li class="item pe-2">
+            <li>
                 <a aria-current="page" href="{{ url('show-customer/'.Auth::id()) }}"> <i class="fa-solid fa-circle-user pe-3"></i> My Profile </a>
             </li>
-            <li class="item pe-2">
+            <li>
                 <a aria-current="page" href="#"> <i class="fa-solid fa-ticket pe-3"></i> Tickets </a>
             </li>
             </li>
-            <li class="item admin">
-                <a aria-current="page" href="#Admin"> <i class="fa-solid fa-lock pe-3"></i> Admin </a>
+            <li>
+                <a aria-current="page" href="{{ url('index-master') }}"> <i class="fa-solid fa-lock pe-3"></i> Master </a>
             </li>
-            <li class="item logout">
+            <li class="logout">
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fa-solid fa-arrow-right-from-bracket pe-3"></i> Logout
                 </a>

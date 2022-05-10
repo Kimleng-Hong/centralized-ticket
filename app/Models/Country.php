@@ -5,12 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Industry extends Model
+class Country extends Model
 {
     use HasFactory;
-    protected $table = 'industries';
+    protected $table = 'countries';
     protected $primaryKey = 'id';
     protected $fillable = [
         'name',
     ];
+
+    public function state() 
+    {
+        return $this->hasOne(State::class, 'country_id', 'id');
+    }
 }

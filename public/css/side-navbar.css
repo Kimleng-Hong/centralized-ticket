@@ -17,7 +17,8 @@
 }
 
 .side-navbar .list li a {
-    width: 100%;
+    display: block;
+    padding: 10px 15px;
     color: #222222;
 }
 
@@ -29,13 +30,13 @@
     color: var(--green);
 }
 
-.side-navbar .list li.active {
+/* .side-navbar .list li.active {
     background: #222222;
 }
 
 .side-navbar .list li.active a {
     color: var(--green);
-}
+} */
 
 .side-navbar .list li.logout:hover {
     background: #dc3545;
