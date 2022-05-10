@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Industry;
 use Illuminate\Http\Request;
 
 class MasterController extends Controller
@@ -13,7 +14,8 @@ class MasterController extends Controller
      */
     public function index()
     {
-        return view('master.index');
+        $industry = Industry::all();
+        return view('master.index', compact('industry'));
     }
 
     /**
@@ -82,8 +84,28 @@ class MasterController extends Controller
         //
     }
 
-    public function industry()
+    public function add_industry()
     {
-        //
+        return view('master.add-industry');
     }
+    public function store_industry(Request $request)
+    {
+        $industry = new Industry;
+        $industry->name = $request->input('industry_name');
+        $industry->save();
+        return redirect('/index-master')->with('status', 'Your action is completed successfully!');
+    }
+    public function edit_industry($id)
+    {
+        $industry = Industry::find($id);
+        return view('master.edit-industry', compact('industry'));
+    }
+    // public function update_industry(Request $request, $id)
+    // {
+    //     $industry = Industry::find($id);
+    //     $industry->name = $request->input('industry_name');
+    //     $industry->update();
+    //     return redirect('/index-master')->with('status', 'Your action is completed successfully!');
+    // }
+    
 }

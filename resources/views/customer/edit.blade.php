@@ -13,7 +13,7 @@
             <div class="content">
                 <div class="head d-flex justify-content-between align-items-center mb-5">
                     <h4 class="m-0">Edit Account</h4>
-                    <a class="btn btn-danger" href="{{ url('show-customer/'.Auth::id()) }}"> Back <i class="fa-solid fa-pen ps-2"></i> </a>
+                    <a class="btn btn-danger" href="{{ url('index-master') }}"> Back <i class="fa-solid fa-pen ps-2"></i> </a>
                 </div>
                 <div class="body">
                     <div class="row">
