@@ -28,10 +28,16 @@ Route::get('/home', [HomeController::class, 'index']);
 
 //Master Route
 Route::get('/index-master', [MasterController::class, 'index']);
+/* ======== Industry ======== */
 Route::get('/add-industry', [MasterController::class, 'add_industry']);
 Route::post('store-industry', [MasterController::class, 'store_industry']);
 Route::get('edit-industry/{id}', [MasterController::class, 'edit_industry']);
 Route::put('update-industry/{id}', [MasterController::class, 'update_industry']);
+/* ======== Location ======== */
+Route::get('/add-location', [MasterController::class, 'add_location']);
+Route::post('store-location', [MasterController::class, 'store_location']);
+Route::get('edit-location/{id}', [MasterController::class, 'edit_location']);
+Route::put('update-location/{id}', [MasterController::class, 'update_location']);
 
 //Customer Route
 Route::get('/create-customer/{id}', [CustomerController::class, 'create']);

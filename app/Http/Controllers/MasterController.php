@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Industry;
+use App\Models\Location;
 use Illuminate\Http\Request;
 
 class MasterController extends Controller
@@ -15,7 +16,8 @@ class MasterController extends Controller
     public function index()
     {
         $industry = Industry::all();
-        return view('master.index', compact('industry'));
+        $location = Location::all();
+        return view('master.index', compact('industry', 'location'));
     }
 
     /**
@@ -83,10 +85,11 @@ class MasterController extends Controller
     {
         //
     }
-
+    
+    /* ====================================== Industry ========================================== */
     public function add_industry()
     {
-        return view('master.add-industry');
+        return view('master.industry.add-industry');
     }
     public function store_industry(Request $request)
     {
@@ -98,14 +101,39 @@ class MasterController extends Controller
     public function edit_industry($id)
     {
         $industry = Industry::find($id);
-        return view('master.edit-industry', compact('industry'));
+        return view('master.industry.edit-industry', compact('industry'));
     }
-    // public function update_industry(Request $request, $id)
-    // {
-    //     $industry = Industry::find($id);
-    //     $industry->name = $request->input('industry_name');
-    //     $industry->update();
-    //     return redirect('/index-master')->with('status', 'Your action is completed successfully!');
-    // }
+    public function update_industry(Request $request, $id)
+    {
+        $industry = Industry::find($id);
+        $industry->name = $request->input('industry_name');
+        $industry->update();
+        return redirect('/index-master')->with('status', 'Your action is completed successfully!');
+    }
+    /* ====================================== Location ========================================== */
+    public function add_location()
+    {
+        return view('master.location.add-location');
+    }
+    public function store_location(Request $request)
+    {
+        $location = new Location;
+        $location->name = $request->input('location_name');
+        $location->save();
+        return redirect('/index-master')->with('status', 'Your action is completed successfully!');
+    }
+    public function edit_location($id)
+    {
+        $location = Location::find($id);
+        return view('master.location.edit-location', compact('location'));
+    }
+    public function update_location(Request $request, $id)
+    {
+        $location = Location::find($id);
+        $location->name = $request->input('location_name');
+        $location->update();
+        return redirect('/index-master')->with('status', 'Your action is completed successfully!');
+    }
+    /* ======================================================================================== */
     
 }
