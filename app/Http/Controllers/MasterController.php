@@ -15,9 +15,7 @@ class MasterController extends Controller
      */
     public function index()
     {
-        $industry = Industry::all();
-        $location = Location::all();
-        return view('master.index', compact('industry', 'location'));
+        return view('master.index');
     }
 
     /**
@@ -86,6 +84,13 @@ class MasterController extends Controller
         //
     }
     
+    public function setup()
+    {
+        $industry = Industry::all();
+        $location = Location::all();
+        return view('master.setup', compact('industry', 'location'));
+    }
+
     /* ====================================== Industry ========================================== */
     public function add_industry()
     {
@@ -96,7 +101,7 @@ class MasterController extends Controller
         $industry = new Industry;
         $industry->name = $request->input('industry_name');
         $industry->save();
-        return redirect('/index-master')->with('status', 'Your action is completed successfully!');
+        return redirect('/setup-master')->with('status', 'Your action is completed successfully!');
     }
     public function edit_industry($id)
     {
@@ -108,7 +113,7 @@ class MasterController extends Controller
         $industry = Industry::find($id);
         $industry->name = $request->input('industry_name');
         $industry->update();
-        return redirect('/index-master')->with('status', 'Your action is completed successfully!');
+        return redirect('/setup-master')->with('status', 'Your action is completed successfully!');
     }
     /* ====================================== Location ========================================== */
     public function add_location()
@@ -120,7 +125,7 @@ class MasterController extends Controller
         $location = new Location;
         $location->name = $request->input('location_name');
         $location->save();
-        return redirect('/index-master')->with('status', 'Your action is completed successfully!');
+        return redirect('/setup-master')->with('status', 'Your action is completed successfully!');
     }
     public function edit_location($id)
     {
@@ -132,7 +137,7 @@ class MasterController extends Controller
         $location = Location::find($id);
         $location->name = $request->input('location_name');
         $location->update();
-        return redirect('/index-master')->with('status', 'Your action is completed successfully!');
+        return redirect('/setup-master')->with('status', 'Your action is completed successfully!');
     }
     /* ======================================================================================== */
     

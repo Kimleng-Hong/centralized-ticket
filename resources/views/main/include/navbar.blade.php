@@ -6,29 +6,41 @@
             </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item me-2">
-                    <a class="nav-link" aria-current="page" href="{{ url('/') }}">Home <i class="fa-solid fa-house ps-1"></i></a>
-                </li>
-                <li class="nav-item pe-2">
-                    <a class="nav-link" aria-current="page" href="{{ url('list-ticket') }} ">Tickets <i class="fa-solid fa-ticket ps-1"></i> </a>
-                </li>
-                <li class="nav-item pe-2">
-                    <a class="nav-link" aria-current="page" href="#">About Us <i class="fa-solid fa-circle-question ps-1"></i></a>
-                </li>
-                <li class="nav-item pe-2">
-                    <a class="nav-link" aria-current="page" href="#">Contact Us <i class="fa-solid fa-phone ps-1"></i> </a>
-                </li>
                 @guest
+                    <li class="nav-item me-2">
+                        <a class="nav-link" aria-current="page" href="{{ url('/') }}"> Home </a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a class="nav-link" aria-current="page" href="#"> About Us </a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a class="nav-link" aria-current="page" href="#"> Contact Us </a>
+                    </li>
                     @if (Route::has('register') or Route::has('login'))
-                        <li class="nav-item px-1 mb-1">
+                        <li class="nav-item me-2 px-1 mb-1">
                             <a class="btn btn-success w-100" href="{{ route('login') }}"> Login </a>
                         </li>
-                        <li class="nav-item px-1 mb-1">
-                            <a class="btn btn-light w-100" href="{{ route('register') }}"> Sign up</a>
+                        <li class="nav-item me-2 px-1 mb-1">
+                            <a class="btn btn-light w-100" href="{{ route('register') }}"> Sign up </a>
                         </li>
                     @endif
                 @else
-                    <li class="nav-item dropdown">
+                    <li class="nav-item me-2">
+                        <a class="nav-link" aria-current="page" href="{{ url('/') }}"> Welcome </a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a class="nav-link" aria-current="page" href="{{ url('/home') }}"> Home </a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a class="nav-link" aria-current="page" href="{{ url('list-ticket') }} "> Tickets </a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a class="nav-link" aria-current="page" href="#"> About Us</a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a class="nav-link" aria-current="page" href="#"> Contact Us </a>
+                    </li>
+                    <li class="nav-item me-2 dropdown">
                         <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             @if(Auth::user()->customer == null)
                                 {{ Auth::user()->phone }}

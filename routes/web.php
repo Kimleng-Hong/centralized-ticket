@@ -28,6 +28,7 @@ Route::get('/home', [HomeController::class, 'index']);
 
 //Master Route
 Route::get('/index-master', [MasterController::class, 'index']);
+Route::get('/setup-master', [MasterController::class, 'setup']);
 /* ======== Industry ======== */
 Route::get('/add-industry', [MasterController::class, 'add_industry']);
 Route::post('store-industry', [MasterController::class, 'store_industry']);

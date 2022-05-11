@@ -21,11 +21,25 @@ a {
 /* root section */
 
 /* navbar section */
-.nav-link {
+.navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.nav-item {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.nav-item:hover {
+    border-bottom: 0.15rem solid var(--green);
+}
+
+.nav-item .nav-link {
     color: var(--white) !important;
 }
 
-.nav-link:hover {
+.nav-item:hover .nav-link {
     color: var(--green) !important;
 }
 

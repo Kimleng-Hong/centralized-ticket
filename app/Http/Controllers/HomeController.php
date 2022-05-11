@@ -24,17 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->user_role == "master") {
-            // return view('');
-        }
-        elseif (Auth::user()->user_role == "company") {
-            // return view('');
-        }
-        elseif (Auth::user()->user_role == "employee") {
-            // return view('');
-        }
-        elseif (Auth::user()->user_role == "customer") {
-            return view('customer.index');
-        }
+        return view('customer.index');
+
+        // if (Auth::user()->user_role == "master") {
+        //     // return view('');
+        // }
+        // elseif (Auth::user()->user_role == "company") {
+        //     // return view('');
+        // }
+        // elseif (Auth::user()->user_role == "employee") {
+        //     // return view('');
+        // }
+        // elseif (Auth::user()->user_role == "customer") {
+        //     //
+        // }
     }
 }
