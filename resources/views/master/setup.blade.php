@@ -8,7 +8,7 @@
     @endif
 
     <div class="row py-3">
-        @include("extra.master-side-navbar")
+        @include("master.include.side-navbar")
         <div class="col-md-9 col-12 my-3">
                 <div class="content mb-5">
         <div class="head d-flex justify-content-between align-items-center mb-5">

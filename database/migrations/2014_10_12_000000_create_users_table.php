@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('user_role',['user','customer','employee','admin','master']);
+            $table->enum('user_role',['user','customer','employee','partner','master']);
             $table->string('phone')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -24,24 +24,37 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('admin', function (Blueprint $table) {
+        Schema::create('partner', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->string('name');
-            // $table->string('branch_name');
-            // $table->string('industry_id');
             $table->string('description');
+            $table->unsignedInteger('industry_id');
+            $table->unsignedInteger('location_id');
             $table->string('address');
-            $table->string('employees_total');
-            // $table->string('established_in');
+            //TODO $table->string('established_in');
             $table->string('phone');
             $table->string('email');
             $table->string('website');
             $table->string('facebook');
             $table->string('instagram');
             $table->string('linkedin');
-            // $table->string('country_state');
-            // $table->string('city_state');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
+            $table->foreign('industry_id')
+                ->references('id')
+                ->on('industries')
+                ->onDelete('set null');
+
+            $table->foreign('location_id')
+                ->references('id')
+                ->on('locations')
+                ->onDelete('set null');
         });
 
         Schema::create('customers', function (Blueprint $table) {

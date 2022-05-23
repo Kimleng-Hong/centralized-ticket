@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
@@ -39,6 +40,11 @@ Route::get('/add-location', [MasterController::class, 'add_location']);
 Route::post('store-location', [MasterController::class, 'store_location']);
 Route::get('edit-location/{id}', [MasterController::class, 'edit_location']);
 Route::put('update-location/{id}', [MasterController::class, 'update_location']);
+/* ======== Partner ======== */
+Route::get('/add-partner', [CompanyController::class, 'create']);
+Route::post('store-partner', [CompanyController::class, 'store']);
+Route::get('edit-partner/{id}', [CompanyController::class, 'edit']);
+Route::put('update-partner/{id}', [CompanyController::class, 'store']);
 
 //Customer Route
 Route::get('/create-customer/{id}', [CustomerController::class, 'create']);

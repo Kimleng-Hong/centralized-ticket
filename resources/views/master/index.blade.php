@@ -8,12 +8,12 @@
     @endif
 
     <div class="row py-3">
-        @include("extra.master-side-navbar")
+        @include("master.include.side-navbar")
         <div class="col-md-9 col-12 my-3">
             <div class="content mb-5">
                 <div class="head d-flex justify-content-between align-items-center mb-5">
                     <h4 class="m-0">Company List</h4>
-                    <a class="btn btn-success" href="{{ url('/add-industry') }}"> Add Company <i class="fa-solid fa-plus pl-2"></i> </a>
+                    <a class="btn btn-success" href="{{ url('/add-partner') }}"> Add Partner <i class="fa-solid fa-plus pl-2"></i> </a>
                 </div>
                 <div class="body">
                     <div class="row">

@@ -13,4 +13,9 @@ class Industry extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function partner() 
+    {
+        return $this->hasMany(Partner::class, 'industry_id', 'id');
+    }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CompanyControlller extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class CompanyControlller extends Controller
      */
     public function create()
     {
-        //
+        return view('master.partner.add-partner');
     }
 
     /**

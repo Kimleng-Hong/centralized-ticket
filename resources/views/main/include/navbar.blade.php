@@ -17,10 +17,10 @@
                         <a class="nav-link" aria-current="page" href="#"> Contact Us </a>
                     </li>
                     @if (Route::has('register') or Route::has('login'))
-                        <li class="nav-item me-2 px-1 mb-1">
+                        <li class="me-2 my-1">
                             <a class="btn btn-success w-100" href="{{ route('login') }}"> Login </a>
                         </li>
-                        <li class="nav-item me-2 px-1 mb-1">
+                        <li class="me-2 my-1">
                             <a class="btn btn-light w-100" href="{{ route('register') }}"> Sign up </a>
                         </li>
                     @endif
@@ -40,7 +40,7 @@
                     <li class="nav-item me-2">
                         <a class="nav-link" aria-current="page" href="#"> Contact Us </a>
                     </li>
-                    <li class="nav-item me-2 dropdown">
+                    <li class="me-2 my-1 dropdown">
                         <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             @if(Auth::user()->customer == null)
                                 {{ Auth::user()->phone }}

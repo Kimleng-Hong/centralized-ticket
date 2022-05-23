@@ -13,4 +13,9 @@ class Location extends Model
     protected $fillable = [
         'name',
     ];
+
+        public function partner() 
+    {
+        return $this->hasMany(Partner::class, 'location_id', 'id');
+    }
 }

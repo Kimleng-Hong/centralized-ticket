@@ -25,6 +25,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function partner() 
+    {
+        return $this->hasOne(Customer::class, 'user_id', 'id');
+    }
+
     public function customer() 
     {
         return $this->hasOne(Customer::class, 'user_id', 'id');
