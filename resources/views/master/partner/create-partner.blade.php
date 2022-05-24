@@ -10,7 +10,7 @@
             @endif
 
             <div class="content">
-                <div class="head d-flex justify-content-between align-items-center mb-5">
+                <div class="head d-flex justify-content-between align-items-center mb-2">
                     <h4 class="m-0">Register New Partner</h4>
                     <a class="btn btn-danger" href="{{ url('index-master') }}"> Back </a>
                 </div>
@@ -74,6 +74,7 @@
                                     @enderror
                             </div>
                         </div>
+                        
                         </form>
                     </div>
                 </div>

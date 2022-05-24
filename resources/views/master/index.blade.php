@@ -13,7 +13,7 @@
             <div class="content mb-5">
                 <div class="head d-flex justify-content-between align-items-center mb-5">
                     <h4 class="m-0">Company List</h4>
-                    <a class="btn btn-success" href="{{ url('/create-partner') }}"> Register Partner </a>
+                    <a class="btn btn-success" href="{{ url('/create-user') }}"> Register Partner </a>
                 </div>
                 <div class="body">
                     <div class="row">

@@ -92,9 +92,9 @@ class MasterController extends Controller
     }
 
     /* ====================================== Industry ========================================== */
-    public function add_industry()
+    public function create_industry()
     {
-        return view('master.industry.add-industry');
+        return view('master.industry.create-industry');
     }
     public function store_industry(Request $request)
     {
@@ -116,9 +116,9 @@ class MasterController extends Controller
         return redirect('/setup-master')->with('status', 'Your action is completed successfully!');
     }
     /* ====================================== Location ========================================== */
-    public function add_location()
+    public function create_location()
     {
-        return view('master.location.add-location');
+        return view('master.location.create-location');
     }
     public function store_location(Request $request)
     {
