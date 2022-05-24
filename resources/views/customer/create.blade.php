@@ -13,15 +13,13 @@
                 <div class="card-header bg-dark text-light">{{ __('User Info Confirmation') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('store-customer/'.Auth::id()) }}"  method="POST">
+                    <form method="POST" action="{{ url('store-customer') }}"  method="POST">
                         @csrf
                         
-                        <div class="row mb-3">
-                            <label for="first_name" class="col-md-4 col-form-label text-md-end">{{ __('First Name') }}</label>
-
-                            <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="first_name" class="col-form-label text-md-end">{{ __('First Name') }}</label>
+                            <div class="col-md-12">
                                 <input id="first_name" type="text" class="form form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" autocomplete="first_name" required placeholder="Input your first name">
-
                                 @error('first_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -30,12 +28,10 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="last_name" class="col-md-4 col-form-label text-md-end">{{ __('Last Name') }}</label>
-
-                            <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="last_name" class="col-form-label text-md-end">{{ __('Last Name') }}</label>
+                            <div class="col-md-12">
                                 <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" autocomplete="last_name" required placeholder="Input your last name">
-
                                 @error('last_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

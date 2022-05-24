@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MasterController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,14 +42,14 @@ Route::post('store-location', [MasterController::class, 'store_location']);
 Route::get('edit-location/{id}', [MasterController::class, 'edit_location']);
 Route::put('update-location/{id}', [MasterController::class, 'update_location']);
 /* ======== Partner ======== */
-Route::get('/add-partner', [CompanyController::class, 'create']);
-Route::post('store-partner', [CompanyController::class, 'store']);
-Route::get('edit-partner/{id}', [CompanyController::class, 'edit']);
-Route::put('update-partner/{id}', [CompanyController::class, 'store']);
+Route::get('/create-partner', [PartnerController::class, 'create']);
+Route::post('store-partner', [PartnerController::class, 'store']);
+Route::get('edit-partner/{id}', [PartnerController::class, 'edit']);
+Route::put('update-partner/{id}', [PartnerController::class, 'store']);
 
 //Customer Route
-Route::get('/create-customer/{id}', [CustomerController::class, 'create']);
-Route::post('store-customer/{id}', [CustomerController::class, 'store']);
+Route::get('/create-customer', [CustomerController::class, 'create']);
+Route::post('store-customer', [CustomerController::class, 'store']);
 Route::get('/show-customer/{id}', [CustomerController::class, 'show']);
 Route::get('/edit-customer/{id}', [CustomerController::class, 'edit']);
 Route::put('update-customer/{id}', [CustomerController::class, 'update']);

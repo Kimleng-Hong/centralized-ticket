@@ -24,10 +24,9 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {   
-        $user = User::find($id);
-        return view('customer.create', compact('user'));
+        return view('customer.create');
     }
 
     /**
@@ -36,16 +35,12 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {   
-        $user = User::find($id);
         $customer = new Customer;
-
-        $user->user_role = 'customer';
         $customer->user_id = Auth::id();
         $customer->first_name = $request->input('first_name');
         $customer->last_name = $request->input('last_name');
-        $user->save();
         $customer->save();
 
         return redirect('/home')->with('status', 'Your registration is completed!');

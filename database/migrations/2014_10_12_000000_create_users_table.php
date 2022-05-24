@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('user_role',['user','customer','employee','partner','master']);
+            $table->enum('user_role',['customer','employee','partner','master']);
             $table->string('phone')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -45,16 +45,6 @@ return new class extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-
-            $table->foreign('industry_id')
-                ->references('id')
-                ->on('industries')
-                ->onDelete('set null');
-
-            $table->foreign('location_id')
-                ->references('id')
-                ->on('locations')
-                ->onDelete('set null');
         });
 
         Schema::create('customers', function (Blueprint $table) {
