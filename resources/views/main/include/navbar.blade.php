@@ -45,7 +45,11 @@
                             @if(Auth::user()->customer == null)
                                 {{ Auth::user()->phone }}
                             @else
-                                {{ Auth::user()->customer->first_name }} {{ Auth::user()->customer->last_name }}
+                                @if(Auth::user()->user_role == 'partner') 
+                                    {{ Auth::user()->parnter->name }}
+                                @else
+                                    {{ Auth::user()->customer->first_name }} {{ Auth::user()->customer->last_name }}
+                                @endif
                             @endif
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

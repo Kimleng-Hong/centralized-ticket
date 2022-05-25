@@ -16,7 +16,7 @@
                 </div>
                 <div class="body">
                     <div class="row">
-                        <form method="POST" action="{{ url('store-location')}}"  method="POST">
+                        <form method="POST" action="{{ url('store-location')}}">
                         @csrf
                         
                         <div class="row mb-3">

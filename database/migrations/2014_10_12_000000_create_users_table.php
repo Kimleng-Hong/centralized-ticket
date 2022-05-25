@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('user_role',['null', 'customer','employee','partner','master']);
-            $table->string('registerd_id'); //Who registered this account
+            $table->enum('user_role',['customer','employee','partner','master']);
             $table->string('phone')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -34,12 +33,10 @@ return new class extends Migration
             $table->unsignedInteger('location_id');
             $table->string('address');
             //TODO $table->string('established_in');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('website');
-            $table->string('facebook');
-            $table->string('instagram');
-            $table->string('linkedin');
+            $table->string('website')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('linkedin')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

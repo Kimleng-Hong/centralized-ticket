@@ -11,12 +11,11 @@
 
             <div class="content">
                 <div class="head d-flex justify-content-between align-items-center mb-2">
-                    <h4 class="m-0">Register New Partner</h4>
-                    <a class="btn btn-danger" href="{{ url('index-master') }}"> Back </a>
+                    <h4 class="m-0">Partner Bussiness Information</h4>
                 </div>
                 <div class="body">
                     <div class="row">
-                        <form method="POST" action="{{ url('store-company')}}"  method="POST">
+                        <form method="POST" action="{{ url('store-partner')}}">
                         @csrf
                         
                         <div class="mb-2">
@@ -74,7 +73,34 @@
                                     @enderror
                             </div>
                         </div>
-                        
+                        <div class="mb-2">
+                            <label for="company_website" class="col-form-label text-md-end">{{ __('Website') }}</label>
+                            <div class="col-md-12">
+                                <input id="company_website" type="text" class="form form-control @error('company_website') is-invalid @enderror" name="company_website" value="{{ old('company_website') }}" autocomplete="company_website" placeholder="Input the company website">
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-4">
+                                <label for="company_facebook" class="col-form-label text-md-end">{{ __('Facebook') }}</label>
+                                <input id="company_facebook" type="text" class="form form-control @error('company_facebook') is-invalid @enderror" name="company_facebook" value="{{ old('company_facebook') }}" autocomplete="company_facebook">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="company_instagram" class="col-form-label text-md-end">{{ __('Instagram') }}</label>
+                                <input id="company_instagram" type="text" class="form form-control @error('company_instagram') is-invalid @enderror" name="company_instagram" value="{{ old('company_instagram') }}" autocomplete="company_instagram">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="company_linkedin" class="col-form-label text-md-end">{{ __('Linkedin') }}</label>
+                                <input id="company_linkedin" type="text" class="form form-control @error('company_linkedin') is-invalid @enderror" name="company_linkedin" value="{{ old('company_linkedin') }}" autocomplete="company_linkedin">
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-12">
+                                <button type="submit" class="w-100 btn btn-primary">
+                                    {{ __('Submit') }}
+                                </button>
+                            </div>
+                        </div>
                         </form>
                     </div>
                 </div>

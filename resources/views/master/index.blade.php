@@ -17,28 +17,24 @@
                 </div>
                 <div class="body">
                     <div class="row">
-                        <div class="box table-responsive mb-4">
-                            <div class="title d-flex justify-content-between align-items-center">    
-                                <h4 class="py-3">Partner List</h4>
-                                
-                            </div>
-                            <div class="table-responsive mb-3">
+                        <div class="box mb-4">
+                            <div class="table-responsive pt-3 mb-3">
                                 <table class="table table-dark table-striped">
                                     <thead>
                                         <tr class="text-center">
-                                        <th scope="col">#</th>
-                                        <th scope="col">Industry</th>
-                                        <th scope="col">Action</th>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Industry</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="text-center">
-                                        <td scope="row"></td>
-                                        <td></td>
-                                        <td>
-                                            <a class="btn btn-primary" href="#"> <i class="fa-solid fa-pen"></i> </a>
-                                            <a class="btn btn-danger" href="#"> <i class="fa-solid fa-trash"></i> </a>
-                                        </td>
+                                            <td scope="row"></td>
+                                            <td></td>
+                                            <td>
+                                                <a class="btn btn-primary" href="#"> <i class="fa-solid fa-pen"></i> </a>
+                                                <a class="btn btn-danger" href="#"> <i class="fa-solid fa-trash"></i> </a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

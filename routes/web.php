@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,29 +34,32 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/index-master', [MasterController::class, 'index']);
 Route::get('/setup-master', [MasterController::class, 'setup']);
 /* ======== Industry ======== */
-Route::get('/create-industry', [MasterController::class, 'add_industry']);
+Route::get('/create-industry', [MasterController::class, 'create_industry']);
 Route::post('store-industry', [MasterController::class, 'store_industry']);
 Route::get('edit-industry/{id}', [MasterController::class, 'edit_industry']);
 Route::put('update-industry/{id}', [MasterController::class, 'update_industry']);
 /* ======== Location ======== */
-Route::get('/create-location', [MasterController::class, 'add_location']);
+Route::get('/create-location', [MasterController::class, 'create_location']);
 Route::post('store-location', [MasterController::class, 'store_location']);
 Route::get('edit-location/{id}', [MasterController::class, 'edit_location']);
 Route::put('update-location/{id}', [MasterController::class, 'update_location']);
+
+/* ======== User ======== */
+Route::get('create-user', [UserController::class, 'create']);
+Route::post('store-user', [UserController::class, 'store']);
 /* ======== Partner ======== */
-Route::get('/create-partner', [PartnerController::class, 'create']);
-Route::post('store-partner', [PartnerController::class, 'store']);
-Route::get('edit-partner/{id}', [PartnerController::class, 'edit']);
-Route::put('update-partner/{id}', [PartnerController::class, 'store']);
+Route::get('/create-partner', [UserController::class, 'create_partner']);
+Route::post('store-partner', [UserController::class, 'store_partner']);
+Route::get('edit-partner/{id}', [UserController::class, 'edit_partner']);
+Route::put('update-partner/{id}', [UserController::class, 'update_partner']);
+/* ======== Customer ======== */
+Route::get('/create-customer', [UserController::class, 'create_customer']);
+Route::post('store-customer', [UserController::class, 'store_customer']);
+Route::get('/show-customer/{id}', [UserController::class, 'show_customer']);
+Route::get('/edit-customer/{id}', [UserController::class, 'edit_customer']);
+Route::put('update-customer/{id}', [UserController::class, 'update_customer']);
 
-//Customer Route
-Route::get('/create-customer', [CustomerController::class, 'create']);
-Route::post('store-customer', [CustomerController::class, 'store']);
-Route::get('/show-customer/{id}', [CustomerController::class, 'show']);
-Route::get('/edit-customer/{id}', [CustomerController::class, 'edit']);
-Route::put('update-customer/{id}', [CustomerController::class, 'update']);
-
-//Ticket Route
+//Ticket Route  
 Route::get('/list-ticket', [TicketController::class, 'index']);
 Route::get('/create-ticket/{id}', [TicketController::class, 'create']);
 Route::post('store-ticket/{id}', [TicketController::class, 'store']);
