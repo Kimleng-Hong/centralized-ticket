@@ -29,8 +29,8 @@ return new class extends Migration
             $table->unsignedInteger('user_id');
             $table->string('name');
             $table->string('description');
-            $table->unsignedInteger('industry_id');
-            $table->unsignedInteger('location_id');
+            $table->string('industry');
+            $table->string('location');
             $table->string('address');
             //TODO $table->string('established_in');
             $table->string('website')->nullable();

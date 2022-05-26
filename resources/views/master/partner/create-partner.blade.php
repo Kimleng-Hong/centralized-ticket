@@ -21,8 +21,8 @@
                         <div class="mb-2">
                             <label for="company_name" class="col-form-label text-md-end">{{ __('Name') }}</label>
                             <div class="col-md-12">
-                                <input id="company_name" type="text" class="form form-control @error('company_name') is-invalid @enderror" name="location_name" value="{{ old('location_name') }}" autocomplete="location_name" required placeholder="Input the company name">
-                                    @error('location_name')
+                                <input id="company_name" type="text" class="form form-control @error('company_name') is-invalid @enderror" name="company_name" value="{{ old('company_name') }}" autocomplete="company_name" required placeholder="Input the company name">
+                                    @error('company_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -43,22 +43,18 @@
                         <div class="row mb-2">
                             <div class="col-md-6">
                                 <label for="company_industry" class="col-form-label text-md-end">{{ __('Industry') }}</label>
-                                <select class="form form-control" id="company_industry">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                <select class="form form-control" id="company_industry" name="company_industry">
+                                    @foreach ($industry as $industry)
+                                        <option value='{{ $industry->name }}'> {{ $industry->name }} </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label for="company_location" class="col-form-label text-md-end">{{ __('Location') }}</label>
-                                <select class="form form-control" id="company_location">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                <select class="form form-control" id="company_location" name="company_location">
+                                    @foreach ($location as $location)
+                                        <option value='{{ $location->name }}'> {{ $location->name }} </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

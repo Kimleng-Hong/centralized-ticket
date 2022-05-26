@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Industry;
+use App\Models\Location;
 use App\Models\Partner;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -27,7 +30,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
         return view('user.create-user');
     }
 
@@ -106,17 +109,21 @@ class UserController extends Controller
 
     public function create_partner()
     {
-        return view('master.partner.create-partner');
+        $industry = Industry::all();
+        $location = Location::all();
+        return view('master.partner.create-partner', compact('industry', 'location'));
     }
 
     public function store_partner(Request $request)
     {
         $partner = new Partner;
-        //TODO $partner->user_id = Auth::id();
+        $user = DB::table('users')->latest()->first();
+        
+        $partner->user_id = $user->id;
         $partner->name = $request->input('company_name');
         $partner->description = $request->input('company_description');
-        $partner->industry_id = $request->input('company_industry');
-        $partner->location_id = $request->input('company_location');
+        $partner->industry = $request->input('company_industry');
+        $partner->location = $request->input('company_location');
         $partner->address = $request->input('company_address');
         $partner->facebook = $request->input('company_facebook');
         $partner->instagram = $request->input('company_instagram');

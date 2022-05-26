@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Industry;
 use App\Models\Location;
+use App\Models\Partner;
 use Illuminate\Http\Request;
 
 class MasterController extends Controller
@@ -15,7 +16,8 @@ class MasterController extends Controller
      */
     public function index()
     {
-        return view('master.index');
+        $partner = Partner::all();
+        return view('master.index', compact('partner'));
     }
 
     /**

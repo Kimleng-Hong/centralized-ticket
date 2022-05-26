@@ -23,19 +23,29 @@
                                     <thead>
                                         <tr class="text-center">
                                             <th scope="col">#</th>
+                                            <th scope="col">Name</th>
                                             <th scope="col">Industry</th>
+                                            <th scope="col">Location</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col">Email</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="text-center">
-                                            <td scope="row"></td>
-                                            <td></td>
-                                            <td>
-                                                <a class="btn btn-primary" href="#"> <i class="fa-solid fa-pen"></i> </a>
-                                                <a class="btn btn-danger" href="#"> <i class="fa-solid fa-trash"></i> </a>
-                                            </td>
-                                        </tr>
+                                        @foreach ($partner as $partner)
+                                            <tr class="text-center">
+                                                <td>{{ $partner->id }}</td>
+                                                <td>{{ $partner->name }}</td>
+                                                <td>{{ $partner->industry }}</td>
+                                                <td>{{ $partner->location }}</td>
+                                                <td>{{ $partner->user->phone }}</td>
+                                                <td>{{ $partner->user->email }}</td>
+                                                <td>
+                                                    <a class="btn btn-primary" href="#"> <i class="fa-solid fa-pen"></i> </a>
+                                                    <a class="btn btn-danger" href="#"> <i class="fa-solid fa-trash"></i> </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
