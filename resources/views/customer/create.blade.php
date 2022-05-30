@@ -10,7 +10,7 @@
             @endif
 
             <div class="card">
-                <div class="card-header bg-dark text-light">{{ __('User Info Confirmation') }}</div>
+                <div class="card-header bg-dark text-light">{{ __('Custmer Information') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ url('store-customer/'.Auth::id()) }}"  method="POST">

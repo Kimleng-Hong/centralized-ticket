@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Industry;
 use App\Models\Location;
 use App\Models\Partner;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MasterController extends Controller
 {
@@ -27,7 +29,7 @@ class MasterController extends Controller
      */
     public function create()
     {
-        //
+        return view('master.create');
     }
 
     /**
@@ -38,7 +40,14 @@ class MasterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $user->user_role = 'master';
+        $user->phone = $request->input('phone');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        return redirect('/home')->with('status', 'Welcome Master!');
     }
 
     /**

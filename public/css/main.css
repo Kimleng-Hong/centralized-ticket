@@ -2,13 +2,14 @@
 :root {
     --white: #f5f5f5;
     --green: #25c078;
-    --facebook: #097ceb;
-    --instagram: #db2f75;
-    --linkin: #2662a9;
+    --blue: #097ceb;
+    --red: #db2f75;
+    --darkblue: #2662a9;
+    --yellow: #bb9600;
 }
 
 body {
-    background: #eeeeee;
+    background: #cacaca;
 }
 
 a {
@@ -17,6 +18,18 @@ a {
 
 .text-green {
     color: var(--green) !important;
+}
+
+.requesting {
+    color: var(--yellow) !important;
+}
+
+.approved {
+    color: var(--green) !important;
+}
+
+.denied {
+    color: var(--red) !important;
 }
 /* root section */
 
@@ -62,15 +75,15 @@ footer .fab {
 }
 
 footer .fa-facebook {
-    color: var(--facebook);
+    color: var(--blue);
 }
 
 footer .fa-instagram {
-    color: var(--instagram);
+    color: var(--red);
 }
 
 footer .fa-linkedin {
-    color: var(--linkin);
+    color: var(--darkblue);
 }
 
 footer .fa-github {

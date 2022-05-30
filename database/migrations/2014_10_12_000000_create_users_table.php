@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('partner', function (Blueprint $table) {
+        Schema::create('partners', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('name');
@@ -37,7 +37,7 @@ return new class extends Migration
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('linkedin')->nullable();
-            $table->enum('partner_approval',['requesting', 'approved', 'denied']);
+            $table->enum('partner_approval',['Requesting', 'Approved', 'Denied']);
             $table->timestamps();
 
             $table->foreign('user_id')

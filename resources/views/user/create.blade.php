@@ -4,11 +4,19 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
+
+            @if(session('status'))
+                <div class="alert alert-success">{{ session('status') }}</div>
+            @endif
+
             <div class="card">
-                <div class="card-header bg-dark text-light">{{ __('User Registration') }}</div>
+                <div class="card-header bg-dark text-light d-flex justify-content-between align-items-center">
+                    {{ __('User Registration') }}                    
+                    <a class="btn btn-danger" href="{{ url()->previous() }}"> Back </a>
+                </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ url('store-user')}}">
                         @csrf
 
                         <div class="mb-3">
@@ -61,7 +69,6 @@
                                 </button>
                             </div>
                         </div>
-                        
                     </form>
                 </div>
             </div>

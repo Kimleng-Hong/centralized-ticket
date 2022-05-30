@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Partner extends Model
 {
     use HasFactory;
-    protected $table = 'partner';
+    protected $table = 'partners';
     protected $primaryKey = 'id';
     protected $fillable = [
         'user_id',
@@ -27,6 +27,6 @@ class Partner extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'id');
     }
 }

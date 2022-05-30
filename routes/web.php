@@ -32,6 +32,7 @@ Route::get('/home', [HomeController::class, 'index']);
 
 //Master Route
 Route::get('/index-master', [MasterController::class, 'index']);
+Route::get('/create-master', [MasterController::class, 'index']);
 Route::get('/setup-master', [MasterController::class, 'setup']);
 /* ======== Industry ======== */
 Route::get('/create-industry', [MasterController::class, 'create_industry']);
@@ -47,11 +48,19 @@ Route::put('update-location/{id}', [MasterController::class, 'update_location'])
 /* ======== User ======== */
 Route::get('create-user', [UserController::class, 'create']);
 Route::post('store-user', [UserController::class, 'store']);
+Route::get('/show-user/{id}', [UserController::class, 'show']);
+Route::get('/edit-user/{id}', [UserController::class, 'edit']);
+Route::put('update-user/{id}', [UserController::class, 'update']);
+/* ======== Master ======== */
+Route::get('create-master', [MasterController::class, 'create']);
+Route::post('store-master', [MasterController::class, 'store']);
+
 /* ======== Partner ======== */
-Route::get('create-partner/{id}', [UserController::class, 'create_partner']);
+Route::get('/create-partner/{id}', [UserController::class, 'create_partner']);
 Route::post('store-partner/{id}', [UserController::class, 'store_partner']);
-Route::get('edit-partner/{id}', [UserController::class, 'edit_partner']);
+Route::get('/edit-partner/{id}', [UserController::class, 'edit_partner']);
 Route::put('update-partner/{id}', [UserController::class, 'update_partner']);
+Route::get('/request-partner', [UserController::class, 'request_partner']);
 /* ======== Customer ======== */
 Route::get('/create-customer/{id}', [UserController::class, 'create_customer']);
 Route::post('store-customer/{id}', [UserController::class, 'store_customer']);

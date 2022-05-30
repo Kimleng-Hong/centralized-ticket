@@ -11,12 +11,12 @@
 
             <div class="card">
                 <div class="card-header bg-dark text-light d-flex justify-content-between align-items-center">
-                    {{ __('Partner Login Registration') }}                    
-                    <a class="btn btn-danger" href="{{ url('index-master') }}"> Back </a>
+                    {{ __('Master Registration') }}                    
+                    <a class="btn btn-danger" href="{{ url()->previous() }}"> Back </a>
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('store-user')}}">
+                    <form method="POST" action="{{ url('store-master')}}">
                         @csrf
 
                         <div class="mb-3">

@@ -13,7 +13,7 @@
             <div class="content">
                 <div class="head d-flex justify-content-between align-items-center mb-3">
                     <h4 class="m-0">Account Information</h4>
-                    <a class="btn btn-primary" href="{{ url('edit-customer/'.Auth::id()) }}"> Edit <i class="fa-solid fa-pen ps-2"></i> </a>
+                    <a class="btn btn-primary" href="{{ url('edit-user/'.Auth::id()) }}"> Edit <i class="fa-solid fa-pen ps-2"></i> </a>
                 </div>
                 <div class="body">
                     <div class="row col-md-12">
@@ -22,19 +22,19 @@
                                 <tbody>
                                     <tr>
                                         <th>Name:</th>
-                                        <td>{{ Auth::user()->customer->first_name }} {{ Auth::user()->customer->last_name }}</td>
+                                        <td>{{ $user->customer->first_name }} {{ $user->customer->last_name }}</td>
                                     </tr>
                                     <tr>
                                         <th>Phone Number:</th>
-                                        <td>{{ Auth::user()->phone }}</td>
+                                        <td>{{ $user->phone }}</td>
                                     </tr>
                                     <tr>
                                         <th>Email Address:</th>
-                                        <td>{{ Auth::user()->email }}</td>
+                                        <td>{{ $user->email }}</td>
                                     </tr>
                                     <tr>
                                         <th>Joined since:</th>
-                                        <td>{{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('m / d / Y') : Auth::user()->email }}</td>
+                                        <td>{{ isset($user->created_at) ? $user->created_at->format('m / d / Y') : $user->email }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -59,7 +59,7 @@
                                             <tbody>
                                                 <tr>
                                                     <th>Company Name:</th>
-                                                    <td>{{ Auth::user()->partner->name }}2</td>
+                                                    <td>{{ Auth::user()->partner->name }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Type of Industry:</th>
@@ -85,7 +85,7 @@
                                         <tbody>
                                             <tr>
                                                 <th>Company Desciption:</th>
-                                                <td>{{ Auth::user()->partner->description }}2</td>
+                                                <td>{{ Auth::user()->partner->description }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Company Website:</th>

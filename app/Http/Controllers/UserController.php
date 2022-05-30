@@ -31,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {   
-        return view('user.create-user');
+        return view('user.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
-        return redirect('/create-partner')->with('status', 'Please provide the necessary information below');
+        return view('role.request');
     }
 
     /**
@@ -60,7 +60,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $partner = Partner::all();
+        $user = User::find($id);
+        return view('user.show', compact('user', 'partner'));
     }
 
     /**
@@ -71,7 +73,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -83,7 +86,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->phone = $request->input('phone');
+        $user->email = $request->input('email');
+        $user->update();
+        return redirect('/show-user/{id}')->with('status', 'Edit Successfully!');
     }
 
     /**
@@ -108,7 +115,7 @@ class UserController extends Controller
         $user = User::find($id);
         $industry = Industry::all();
         $location = Location::all();
-        return view('partner.create-partner', compact('user', 'industry', 'location'));
+        return view('partner.create', compact('user', 'industry', 'location'));
     }
 
     public function store_partner(Request $request, $id)
@@ -128,15 +135,20 @@ class UserController extends Controller
         $partner->partner_approval = 'requesting';
         $partner->save();
 
-        return redirect()->back()->with('status', 'Your registration is completed! Please wait for admin approval.');
+        return redirect('show-user')->with('status', 'Your registration is completed! Please wait for admin approval.');
     }
 
-    public function approve_partner(Request $request, $id)
+    public function request_partner() {
+        $partner = DB::table('partners')->where('partner_approval', 'requesting')->get();
+        return view('partner.request', compact('partner'));
+    }
+
+    public function approved_partner($id)
     {
-        $partner = User::find($id);
-        $partner->user_role = 'partner';
-        $partner->update();
-        return redirect('/index-master')->with('status', 'Your registration is completed!');
+        $user = User::find($id);
+        $user->user_role = 'partner';
+        $user->update();
+        return redirect('/home')->with('status', 'Your registration is completed!');
     }
 
     public function show_partner($id)
@@ -212,34 +224,34 @@ class UserController extends Controller
         $user->user_role = 'customer';
         $user->save();
         
-        $customer = new Customer;
-        $customer->user_id = Auth::id();
-        $customer->first_name = $request->input('first_name');
-        $customer->last_name = $request->input('last_name');
-        $customer->save();
+        $user = new Customer;
+        $user->user_id = Auth::id();
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+        $user->save();
 
         return redirect('/home')->with('status', 'Your registration is completed!');
     }
 
     public function show_customer($id)
     {
-        $customer = User::find($id);
-        return view('customer.show', compact('customer'));
+        $user = User::find($id);
+        return view('user.show', compact('user'));
     }
 
     public function edit_customer($id)
     {
-        $customer = User::find($id);
-        return view('customer.edit', compact('customer'));
+        $user = User::find($id);
+        return view('user.edit', compact('user'));
     }
 
     public function update_customer(Request $request, $id)
     {
-        $customer = User::find($id);
-        $customer->phone = $request->input('phone');
-        $customer->email = $request->input('email');
-        $customer->update();
-        return redirect('/show-customer/{id}')->with('status', 'Edit Successfully!');
+        $user = User::find($id);
+        $user->phone = $request->input('phone');
+        $user->email = $request->input('email');
+        $user->update();
+        return redirect('/show-user/{id}')->with('status', 'Edit Successfully!');
     }
 
     public function destroy_customer($id)
