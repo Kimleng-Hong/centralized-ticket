@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('user_role',['customer','employee','partner','master']);
+            $table->enum('user_role',['user','customer','employee','partner','master']);
             $table->string('phone')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -37,6 +37,7 @@ return new class extends Migration
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('linkedin')->nullable();
+            $table->enum('partner_approval',['requesting', 'approved', 'denied']);
             $table->timestamps();
 
             $table->foreign('user_id')

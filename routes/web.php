@@ -48,13 +48,13 @@ Route::put('update-location/{id}', [MasterController::class, 'update_location'])
 Route::get('create-user', [UserController::class, 'create']);
 Route::post('store-user', [UserController::class, 'store']);
 /* ======== Partner ======== */
-Route::get('/create-partner', [UserController::class, 'create_partner']);
-Route::post('store-partner', [UserController::class, 'store_partner']);
+Route::get('create-partner/{id}', [UserController::class, 'create_partner']);
+Route::post('store-partner/{id}', [UserController::class, 'store_partner']);
 Route::get('edit-partner/{id}', [UserController::class, 'edit_partner']);
 Route::put('update-partner/{id}', [UserController::class, 'update_partner']);
 /* ======== Customer ======== */
-Route::get('/create-customer', [UserController::class, 'create_customer']);
-Route::post('store-customer', [UserController::class, 'store_customer']);
+Route::get('/create-customer/{id}', [UserController::class, 'create_customer']);
+Route::post('store-customer/{id}', [UserController::class, 'store_customer']);
 Route::get('/show-customer/{id}', [UserController::class, 'show_customer']);
 Route::get('/edit-customer/{id}', [UserController::class, 'edit_customer']);
 Route::put('update-customer/{id}', [UserController::class, 'update_customer']);

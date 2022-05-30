@@ -15,7 +15,7 @@
                 </div>
                 <div class="body">
                     <div class="row">
-                        <form method="POST" action="{{ url('store-partner')}}">
+                        <form method="POST" action="{{ url('store-partner/'.$user->id)}}">
                         @csrf
                         
                         <div class="mb-2">
@@ -90,10 +90,10 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
+                        <div class="row mt-4 mb-0">
                             <div class="col-md-12">
                                 <button type="submit" class="w-100 btn btn-primary">
-                                    {{ __('Submit') }}
+                                    {{ __('Request Approval') }}
                                 </button>
                             </div>
                         </div>

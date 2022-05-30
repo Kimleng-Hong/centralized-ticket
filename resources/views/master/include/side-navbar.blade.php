@@ -8,6 +8,9 @@
                 <a aria-current="page" href="{{ url('index-master') }}"> <i class="fa-solid fa-lock pe-3"></i> Master </a>
             </li>
             <li>
+                <a aria-current="page" href="{{ url('request-parter') }}"> <i class="fa-solid fa-inbox pe-3"></i> Approval Request </a>
+            </li>
+            <li>
                 <a aria-current="page" href="{{ url('setup-master') }}"> <i class="fa-solid fa-toolbox pe-3"></i> Setup </a>
             </li>
             <li class="logout">

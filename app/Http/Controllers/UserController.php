@@ -43,11 +43,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new User;
-        if(Auth::user()->user_role == 'master') {
-            $user->user_role = 'partner';
-        } elseif(Auth::user()->user_role == 'partner') {
-            $user->user_role = 'employee';
-        }
+        $user->user_role = 'user';
         $user->phone = $request->input('phone');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
@@ -107,17 +103,18 @@ class UserController extends Controller
         //
     }
 
-    public function create_partner()
+    public function create_partner($id)
     {
+        $user = User::find($id);
         $industry = Industry::all();
         $location = Location::all();
-        return view('master.partner.create-partner', compact('industry', 'location'));
+        return view('partner.create-partner', compact('user', 'industry', 'location'));
     }
 
-    public function store_partner(Request $request)
+    public function store_partner(Request $request, $id)
     {
+        $user = User::find($id);
         $partner = new Partner;
-        $user = DB::table('users')->latest()->first();
         
         $partner->user_id = $user->id;
         $partner->name = $request->input('company_name');
@@ -128,8 +125,17 @@ class UserController extends Controller
         $partner->facebook = $request->input('company_facebook');
         $partner->instagram = $request->input('company_instagram');
         $partner->linkedin = $request->input('company_linkedin');
+        $partner->partner_approval = 'requesting';
         $partner->save();
 
+        return redirect()->back()->with('status', 'Your registration is completed! Please wait for admin approval.');
+    }
+
+    public function approve_partner(Request $request, $id)
+    {
+        $partner = User::find($id);
+        $partner->user_role = 'partner';
+        $partner->update();
         return redirect('/index-master')->with('status', 'Your registration is completed!');
     }
 
@@ -200,8 +206,12 @@ class UserController extends Controller
         return view('customer.create');
     }
 
-    public function store_customer(Request $request)
+    public function store_customer(Request $request, $id)
     {
+        $user = User::find($id);
+        $user->user_role = 'customer';
+        $user->save();
+        
         $customer = new Customer;
         $customer->user_id = Auth::id();
         $customer->first_name = $request->input('first_name');
