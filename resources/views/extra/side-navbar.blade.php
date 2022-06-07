@@ -4,6 +4,11 @@
             <li>
                 <a aria-current="page" href="{{ url('/') }}"> <i class="fa-solid fa-house pe-3"></i> Home </a>
             </li>
+            @if(Auth::user()->user_role == "partner")
+                <li>
+                    <a aria-current="page" href="{{ url('show-employee') }}"> <i class="fa-solid fas fa-users pe-3"></i></i> Employee </a>
+                </li>
+            @endif
             <li>
                 <a aria-current="page" href="{{ url('show-customer/'.Auth::id()) }}"> <i class="fa-solid fa-circle-user pe-3"></i> My Profile </a>
             </li>

@@ -13,5 +13,6 @@ class Employee extends Model
         'user_id',
         'first_name',
         'last_name',
+        'work_for'
     ];
 }

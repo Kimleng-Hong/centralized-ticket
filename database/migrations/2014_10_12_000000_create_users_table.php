@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('partner_requesting',['Null', 'Requesting', 'Checking', 'Approved', 'Denied']);
+            $table->string('created_by')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
@@ -37,7 +39,20 @@ return new class extends Migration
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('linkedin')->nullable();
-            $table->enum('partner_approval',['Requesting', 'Approved', 'Denied']);
+            $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+        });
+
+        Schema::create('employees', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('work_for');
             $table->timestamps();
 
             $table->foreign('user_id')

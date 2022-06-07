@@ -6,6 +6,12 @@
     border-bottom: 0.25rem solid var(--green);
 }
 
+.table-container {
+    padding: 0 0.75rem;
+    border-radius: 0.75rem;
+    background: var(--gray);
+}
+
 .content .head {
     border-bottom: 0.05rem solid #bbbbbb;
     padding-bottom: 1rem;

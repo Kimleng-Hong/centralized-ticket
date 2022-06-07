@@ -42,15 +42,7 @@
                     </li>
                     <li class="me-2 my-1 dropdown">
                         <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            @if(Auth::user()->customer == null)
-                                {{ Auth::user()->phone }}
-                            @else
-                                @if(Auth::user()->user_role == 'partner') 
-                                    {{ Auth::user()->parnter->name }}
-                                @else
-                                    {{ Auth::user()->customer->first_name }} {{ Auth::user()->customer->last_name }}
-                                @endif
-                            @endif
+                            {{ Auth::user()->email }}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li>

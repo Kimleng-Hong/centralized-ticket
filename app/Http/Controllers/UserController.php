@@ -43,13 +43,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = new User;
+
         $user->user_role = 'user';
         $user->phone = $request->input('phone');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
-        $user->save();
+        if (Auth::user()->user_role == "master") {
+            $user->partner_requesting = 'Requesting';
+        } else {
+            $user->partner_requesting = 'Null';
+        }
+        $user->created_by = Auth::id();
 
-        return view('role.request');
+        $user->save();
+        return view('welcome.index');
     }
 
     /**
@@ -61,8 +68,8 @@ class UserController extends Controller
     public function show($id)
     {
         $partner = Partner::all();
-        $user = User::find($id);
-        return view('user.show', compact('user', 'partner'));
+        $users = User::find($id);
+        return view('user.show', compact('users', 'partner'));
     }
 
     /**
@@ -104,6 +111,19 @@ class UserController extends Controller
         //
     }
 
+    // public function request_user() {
+    //     return view('user.request');
+    // }
+
+    public function approved_user($id)
+    {
+        $user = User::find($id);
+        $user->user_role = 'partner';
+        $user->update();
+        return redirect('/home')->with('status', 'Your registration is completed!');
+    }
+
+
     /* ====================================== Partner ========================================== */
     public function index_partner()
     {
@@ -138,18 +158,7 @@ class UserController extends Controller
         return redirect('show-user')->with('status', 'Your registration is completed! Please wait for admin approval.');
     }
 
-    public function request_partner() {
-        $partner = DB::table('partners')->where('partner_approval', 'requesting')->get();
-        return view('partner.request', compact('partner'));
-    }
 
-    public function approved_partner($id)
-    {
-        $user = User::find($id);
-        $user->user_role = 'partner';
-        $user->update();
-        return redirect('/home')->with('status', 'Your registration is completed!');
-    }
 
     public function show_partner($id)
     {
@@ -208,54 +217,54 @@ class UserController extends Controller
     }
 
     /* ====================================== Customer ========================================== */
-    public function index_customer()
-    {
-        //
-    }
+    // public function index_customer()
+    // {
+    //     //
+    // }
 
-    public function create_customer()
-    {
-        return view('customer.create');
-    }
+    // public function create_customer()
+    // {
+    //     return view('customer.create');
+    // }
 
-    public function store_customer(Request $request, $id)
-    {
-        $user = User::find($id);
-        $user->user_role = 'customer';
-        $user->save();
+    // public function store_customer(Request $request, $id)
+    // {
+    //     $user = User::find($id);
+    //     $user->user_role = 'customer';
+    //     $user->save();
         
-        $user = new Customer;
-        $user->user_id = Auth::id();
-        $user->first_name = $request->input('first_name');
-        $user->last_name = $request->input('last_name');
-        $user->save();
+    //     $customer = new Customer;
+    //     $customer->user_id = Auth::id();
+    //     $customer->first_name = $request->input('first_name');
+    //     $customer->last_name = $request->input('last_name');
+    //     $customer->save();
 
-        return redirect('/home')->with('status', 'Your registration is completed!');
-    }
+    //     return redirect('/home')->with('status', 'Your registration is completed!');
+    // }
 
-    public function show_customer($id)
-    {
-        $user = User::find($id);
-        return view('user.show', compact('user'));
-    }
+    // public function show_customer($id)
+    // {
+    //     $user = User::find($id);
+    //     return view('user.show', compact('user'));
+    // }
 
-    public function edit_customer($id)
-    {
-        $user = User::find($id);
-        return view('user.edit', compact('user'));
-    }
+    // public function edit_customer($id)
+    // {
+    //     $user = User::find($id);
+    //     return view('user.edit', compact('user'));
+    // }
 
-    public function update_customer(Request $request, $id)
-    {
-        $user = User::find($id);
-        $user->phone = $request->input('phone');
-        $user->email = $request->input('email');
-        $user->update();
-        return redirect('/show-user/{id}')->with('status', 'Edit Successfully!');
-    }
+    // public function update_customer(Request $request, $id)
+    // {
+    //     $user = User::find($id);
+    //     $user->phone = $request->input('phone');
+    //     $user->email = $request->input('email');
+    //     $user->update();
+    //     return redirect('/show-user/{id}')->with('status', 'Edit Successfully!');
+    // }
 
-    public function destroy_customer($id)
-    {
-        //
-    }
+    // public function destroy_customer($id)
+    // {
+    //     //
+    // }
 }

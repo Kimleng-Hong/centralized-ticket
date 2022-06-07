@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,8 +27,8 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()->user_role == "master") {
-            $partner = Partner::all();
-            return view('master.index', compact('partner'));
+            $users = User::all();
+            return view('master.index', compact('users'));
         }
         elseif (Auth::user()->user_role == "partner") {
             return view('partner.index');

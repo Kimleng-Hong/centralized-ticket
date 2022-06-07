@@ -12,7 +12,7 @@
         <div class="col-md-9 col-12 my-3">
             <div class="content mb-5">
                 <div class="head d-flex justify-content-between align-items-center mb-5">
-                    <h4 class="m-0">Company List</h4>
+                    <h4 class="m-0">Partner List</h4>
                     <a class="btn btn-success" href="{{ url('/create-user') }}"> Register Partner </a>
                 </div>
                 <div class="body">
@@ -32,19 +32,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($partner as $partner)
-                                            <tr class="text-center">
-                                                <td>{{ $partner->id }}</td>
-                                                <td>{{ $partner->name }}</td>
-                                                <td>{{ $partner->industry }}</td>
-                                                <td>{{ $partner->location }}</td>
-                                                <td>{{ $partner->user->phone }}</td>
-                                                <td>{{ $partner->user->email }}</td>
-                                                <td>
-                                                    <a class="btn btn-primary" href="#"> <i class="fa-solid fa-pen"></i> </a>
-                                                    <a class="btn btn-danger" href="#"> <i class="fa-solid fa-trash"></i> </a>
-                                                </td>
-                                            </tr>
+                                        @foreach ($users as $user)
+                                            @if(($user->partner_requesting === 'Approved'))
+                                                <tr class="text-center">
+                                                    <td>{{ $user->id }}</td>
+                                                    <td>{{ $user->partner->name }}</td>
+                                                    <td>{{ $user->partner->industry }}</td>
+                                                    <td>{{ $user->partner->location }}</td>
+                                                    <td>{{ $user->phone }}</td>
+                                                    <td>{{ $user->email }}</td>
+                                                    <td>
+                                                        <a class="btn btn-primary" href="#"> <i class="fa-solid fa-pen"></i> </a>
+                                                        <a class="btn btn-danger" href="#"> <i class="fa-solid fa-trash"></i> </a>
+                                                    </td>
+                                                </tr>
+                                            @endif
                                         @endforeach
                                     </tbody>
                                 </table>

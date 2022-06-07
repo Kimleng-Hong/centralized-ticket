@@ -18,8 +18,8 @@ class MasterController extends Controller
      */
     public function index()
     {
-        $partner = Partner::all();
-        return view('master.index', compact('partner'));
+        $users = User::all();
+        return view('master.index', compact('users'));
     }
 
     /**
