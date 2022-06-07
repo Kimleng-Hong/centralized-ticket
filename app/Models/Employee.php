@@ -9,10 +9,16 @@ class Employee extends Model
 {
     use HasFactory;
     protected $table = 'employees';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'user_id',
         'first_name',
         'last_name',
         'work_for'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id');
+    }
 }

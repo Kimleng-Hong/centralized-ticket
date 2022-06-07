@@ -60,7 +60,7 @@
                                         <th scope="col">Description</th>
                                         <th scope="col">Phone</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col" colspan="2">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>    
@@ -76,14 +76,16 @@
                                                 <form method="POST" action="{{ url('approve-partner/'.$user->id)}}">
                                                     @csrf
                                                     @method('PUT')
-
-                                                    <button name='partner_requesting' class="btn btn-success" type="submit" value='Approved'>Approve</button>
+                                                    
+                                                    <button name='partner_requesting' class="btn btn-success" type="submit" value='Approved'><i class="fa-solid fa-circle-check"></i></button>
                                                 </form>
+                                            </td>
+                                            <td>
                                                 <form method="POST" action="{{ url('deny-partner/'.$user->id)}}">
                                                     @csrf
                                                     @method('PUT')
 
-                                                    <button name='partner_requesting' class="btn btn-danger" type="submit" value='Denied'>Deny</button>
+                                                    <button name='partner_requesting' class="btn btn-danger" type="submit" value='Denied'><i class="fa-solid fa-circle-xmark"></i></button>
                                                 </form>
                                             </td>
                                             </tr>

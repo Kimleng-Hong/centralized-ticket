@@ -26,7 +26,8 @@
                                 <table class="table table-dark table-striped">
                                     <thead>
                                         <tr class="text-center">
-                                            <th scope="col">#</th>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Name</th>
                                             <th scope="col">Phone</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Action</th>
@@ -37,7 +38,8 @@
                                         @if($user->user_role == 'employee')
                                             @if($user->created_by == Auth::user()->id)
                                                 <tr class="text-center">
-                                                    <td>{{ $user->id }}</td>
+                                                    <td>{{ $user->employee->id }}</td>
+                                                    <td>{{ $user->employee->first_name }} {{ $user->employee->last_name }}</td>
                                                     <td>{{ $user->phone }}</td>
                                                     <td>{{ $user->email }}</td>
                                                     <td>
