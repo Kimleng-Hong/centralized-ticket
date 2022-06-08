@@ -2,17 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Customer;
-use App\Models\Industry;
 use App\Models\Location;
-use App\Models\Partner;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class LocationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,8 +23,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
-        return view('user.create');
+    {
+        return view('master.location.create-location');
     }
 
     /**
@@ -42,21 +35,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User;
-
-        $user->user_role = 'user';
-        $user->phone = $request->input('phone');
-        $user->email = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
-        if (Auth::user()->user_role == "master") {
-            $user->partner_requesting = 'Requesting';
-        } else {
-            $user->partner_requesting = 'Null';
-        }
-        $user->created_by = Auth::id();
-
-        $user->save();
-        return view('welcome.index');
+        $location = new Location;
+        $location->name = $request->input('location_name');
+        $location->save();
+        return redirect('/setup-master')->with('status', 'Your action is completed successfully!');
     }
 
     /**
@@ -67,9 +49,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $partner = Partner::all();
-        $users = User::find($id);
-        return view('user.show', compact('users', 'partner'));
+        //
     }
 
     /**
@@ -80,8 +60,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('user.edit', compact('user'));
+        $location = Location::find($id);
+        return view('master.location.edit-location', compact('location'));
     }
 
     /**
@@ -93,11 +73,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->phone = $request->input('phone');
-        $user->email = $request->input('email');
-        $user->update();
-        return redirect('/show-user/{id}')->with('status', 'Edit Successfully!');
+        //
     }
 
     /**

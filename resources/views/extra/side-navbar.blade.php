@@ -4,17 +4,21 @@
             <li>
                 <a aria-current="page" href="{{ url('/') }}"> <i class="fa-solid fa-house pe-3"></i> Home </a>
             </li>
-            @if(Auth::user()->user_role == "partner" OR Auth::user()->user_role == "employee")
+            @if(Auth::user()->user_role == "partner")
                 <li>
                     <a aria-current="page" href="{{ url('show-employee') }}"> <i class="fa-solid fas fa-users pe-3"></i></i> Employee </a>
                 </li>
+            @endif
+            @if(Auth::user()->user_role == "partner" OR Auth::user()->user_role == "employee")
                 <li>
-                    <a aria-current="page" href="{{ url('index-ticket') }}"> <i class="fa-solid fas fa-users pe-3"></i></i> Ticket </a>
+                    <a aria-current="page" href="{{ url('index-ticket') }}"> <i class="fa-solid fa-ticket pe-3"></i></i> Ticket </a>
                 </li>
             @endif
+            @if(Auth::user()->user_role == "master")
             <li>
                 <a aria-current="page" href="{{ url('index-master') }}"> <i class="fa-solid fa-lock pe-3"></i> Master </a>
             </li>
+            @endif
             <li class="logout">
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fa-solid fa-arrow-right-from-bracket pe-3"></i> Logout

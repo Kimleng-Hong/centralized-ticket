@@ -16,7 +16,7 @@
                     <a class="btn btn-primary" href="{{ url('create-ticket') }}"> Add Ticket </a>
                 </div>
                 <div class="body">
-                    <div class="ticket-content mb-5">
+                    <div class="box table-container mb-4">
                         <div class="ticket-item row align-items-center">
                             <div class="left col-md-9 col-6">
                                 <div class="photo"></div>
@@ -52,7 +52,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>    
-                                        @foreach ($tickets as $tickets)
+                                        @foreach ($tickets as $ticket)
                                             @if($ticket->sale_partner == Auth::id())
                                                 @if(($ticket->partner_approval == 'requesting')) 
                                                     <tr class="text-center">
@@ -60,9 +60,10 @@
                                                     <td> {{ $ticket->name }}</td>
                                                     <td> {{ $ticket->description }}</td>
                                                     <td> {{ $ticket->price }}</td>
-                                                    {{-- <td> {{ $user->employee->first_name }} {{ $user->employee->last_name }} </td> --}}
+                                                    <td> 
+                                                        {{-- {{ $user->employee->first_name }} {{ $user->employee->last_name }} </td> --}}
                                                     <td>
-                                                        <form method="POST" action="{{ url('approve-partner/'.$ticket->id)}}">
+                                                        <form method="POST" action="{{ url('approve-ticket/'.$ticket->id)}}">
                                                             @csrf
                                                             @method('PUT')
                                                             
@@ -70,7 +71,7 @@
                                                         </form>
                                                     </td>
                                                     <td>
-                                                        <form method="POST" action="{{ url('deny-partner/'.$ticket->id)}}">
+                                                        <form method="POST" action="{{ url('deny-ticket/'.$ticket->id)}}">
                                                             @csrf
                                                             @method('PUT')
 

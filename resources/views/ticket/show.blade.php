@@ -11,7 +11,7 @@
         @include("extra.side-navbar")
         <div class="col-md-9 col-12 my-3">
             <div class="content">
-                <div class="head d-flex justify-content-between align-items-center mb-5">
+                <div class="head d-flex justify-content-between align-items-center mb-3">
                     <h4 class="m-0">Ticket List</h4>
                     <a class="btn btn-primary" href="{{ url('create-ticket/'.Auth::id()) }}"> Add Ticket </a>
                 </div>

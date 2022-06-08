@@ -117,7 +117,7 @@ class PartnerController extends Controller
     public function approve(Request $request, $id)
     {
         $users = User::find($id);
-        $users->user_role = "Partner";
+        $users->user_role = "partner";
         $users->partner_requesting = $request->input('partner_requesting');
         $users->update();
 

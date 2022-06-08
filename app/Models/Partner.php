@@ -14,8 +14,8 @@ class Partner extends Model
         'user_id',
         'name',
         'description',
-        'industry',
-        'location',
+        'industry_id',
+        'location_id',
         'address',
         //TODO'established_in',
         'website',
@@ -26,6 +26,16 @@ class Partner extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class);
+    }
+
+    public function industry()
+    {
+        return $this->belongTo(Industry::class);        
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
     }
 }

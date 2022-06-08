@@ -20,60 +20,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('partner_requesting',['Null', 'Requesting', 'Checking', 'Approved', 'Denied']);
+            $table->enum('partner_requesting',['null', 'requesting', 'checking', 'approved', 'denied']);
             $table->string('created_by')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
-
-        Schema::create('partners', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->string('name');
-            $table->string('description');
-            $table->string('industry');
-            $table->string('location');
-            $table->string('address');
-            //TODO $table->string('established_in');
-            $table->string('website')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('linkedin')->nullable();
-            $table->timestamps();
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-        });
-
-        Schema::create('employees', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('work_for');
-            $table->timestamps();
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-        });
-
-        Schema::create('customers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->timestamps();
-
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-        });
-
     }
 
     /**

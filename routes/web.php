@@ -83,7 +83,9 @@ Route::get('/show-employee', [EmployeeControlller::class, 'show']);
 Route::get('/index-ticket', [TicketController::class, 'index']);
 Route::get('/create-ticket', [TicketController::class, 'create']);
 Route::post('store-ticket/{id}', [TicketController::class, 'store']);
-Route::get('/show-ticket/{id}', [TicketController::class, 'show']);
-Route::get('/edit-ticket/{id}', [TicketController::class, 'edit']);
-Route::put('update-ticket/{id}', [TicketController::class, 'update']);
+// Route::get('/show-ticket/{id}', [TicketController::class, 'show']);
+// Route::get('/edit-ticket/{id}', [TicketController::class, 'edit']);
+// Route::put('update-ticket/{id}', [TicketController::class, 'update']);
+Route::put('/approve-ticket/{id}', [TicketController::class, 'approve']);
+Route::put('/deny-ticket/{id}', [TicketController::class, 'deny']);
 

@@ -18,6 +18,7 @@ class TicketController extends Controller
     public function index()
     {
         $tickets = Ticket::all();
+        // $users = User::all();
         return view('ticket.index', compact('tickets'));
     }
 
@@ -46,10 +47,10 @@ class TicketController extends Controller
         $ticket->description = $request->input('ticket_description');
         $ticket->price = $request->input('ticket_price');
         if (Auth::user()->user_role == "partner") {
-            $ticket->sale_parter = Auth::id();
+            $ticket->sale_partner = Auth::id();
             $ticket->registered_by = Auth::id();
         } elseif(Auth::user()->user_role == "employee") {
-            $ticket->sale_parter = $employee->employee->work_for;
+            $ticket->sale_partner = $employee->employee->work_for;
             $ticket->registered_by = $employee->employee->id;
         }   
         $ticket->partner_approval = 'requesting';
