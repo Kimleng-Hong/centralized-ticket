@@ -10,9 +10,11 @@ class Ticket extends Model
     use HasFactory;
     protected $table = 'tickets';
     protected $fillable = [
-        //Todo 'company_id',
         'name',
+        'description',
         'price',
-        'added_date'
+        'sale_parter',
+        'registered_by',
+        'partner_approval',
     ];
 }

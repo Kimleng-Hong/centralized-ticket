@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class TicketController extends Controller
 {
@@ -13,7 +17,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return view('ticket.index');
+        $tickets = Ticket::all();
+        return view('ticket.index', compact('tickets'));
     }
 
     /**
@@ -23,7 +28,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        return view('ticket.create');
     }
 
     /**
@@ -32,9 +37,25 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $ticket = new Ticket;
+        $employee = User::find($id);
+
+        $ticket->name = $request->input('ticket_name');
+        $ticket->description = $request->input('ticket_description');
+        $ticket->price = $request->input('ticket_price');
+        if (Auth::user()->user_role == "partner") {
+            $ticket->sale_parter = Auth::id();
+            $ticket->registered_by = Auth::id();
+        } elseif(Auth::user()->user_role == "employee") {
+            $ticket->sale_parter = $employee->employee->work_for;
+            $ticket->registered_by = $employee->employee->id;
+        }   
+        $ticket->partner_approval = 'requesting';
+
+        $ticket->save();
+        return redirect('/')->with('status', 'Your registration is completed!');
     }
 
     /**
@@ -80,5 +101,23 @@ class TicketController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function approve(Request $request, $id)
+    {
+        $ticket = Ticket::find($id);
+        $ticket->partner_approval = 'approved';
+        $ticket->update();
+
+        return Redirect::back()->with('status','Operation Successful!');
+    }
+
+    public function deny(Request $request, $id)
+    {
+        $ticket = Ticket::find($id);
+        $ticket->partner_approval = 'denied';
+        $ticket->update();
+
+        return Redirect::back()->with('status','Operation Successful!');
     }
 }

@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('description');
             $table->string('price');
-            $table->dateTime('added_date');
+            $table->string('sale_partner');
+            $table->string('registered_by');
+            $table->enum('partner_approval',['requesting', 'approved', 'denied']);
             $table->timestamps();
         });
     }

@@ -74,13 +74,14 @@ Route::get('/show-customer/{id}', [CustomerControlller::class, 'show']);
 Route::get('/edit-customer/{id}', [CustomerControlller::class, 'edit']);
 Route::put('update-customer/{id}', [CustomerControlller::class, 'update']);
 /* ======== Employee ======== */
+Route::get('/index-employee', [EmployeeControlller::class, 'index']);
 Route::get('/create-employee/{id}', [EmployeeControlller::class, 'create']);
 Route::post('store-employee/{id}', [EmployeeControlller::class, 'store']);
 Route::get('/show-employee', [EmployeeControlller::class, 'show']);
 
 //Ticket Route  
-Route::get('/list-ticket', [TicketController::class, 'index']);
-Route::get('/create-ticket/{id}', [TicketController::class, 'create']);
+Route::get('/index-ticket', [TicketController::class, 'index']);
+Route::get('/create-ticket', [TicketController::class, 'create']);
 Route::post('store-ticket/{id}', [TicketController::class, 'store']);
 Route::get('/show-ticket/{id}', [TicketController::class, 'show']);
 Route::get('/edit-ticket/{id}', [TicketController::class, 'edit']);

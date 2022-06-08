@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100 px-5">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Tinh Sroul</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler m-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -32,7 +32,7 @@
                         <a class="nav-link" aria-current="page" href="{{ url('/home') }}"> Home </a>
                     </li>
                     <li class="nav-item me-2">
-                        <a class="nav-link" aria-current="page" href="{{ url('list-ticket') }} "> Tickets </a>
+                        <a class="nav-link" aria-current="page" href="{{ url('index-ticket') }} "> Tickets </a>
                     </li>
                     <li class="nav-item me-2">
                         <a class="nav-link" aria-current="page" href="#"> About Us</a>

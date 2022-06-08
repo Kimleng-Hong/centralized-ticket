@@ -13,7 +13,6 @@
             <div class="content mb-5">
                 <div class="head d-flex justify-content-between align-items-center mb-5">
                     <h4 class="m-0">Employee List</h4>
-                    
                 </div>
                 <div class="body">
                     <div class="row">
