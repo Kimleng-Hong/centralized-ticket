@@ -17,14 +17,15 @@ return new class extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('name');
-            $table->string('description');
+            $table->mediumText('description');
             $table->unsignedInteger('industry_id');
             $table->unsignedInteger('location_id');
-            $table->string('address');
+            $table->mediumText('address');
             $table->string('website')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('linkedin')->nullable();
+            // $table->enum('account_approval',['approved', 'denied']);
             $table->timestamps();
 
             $table->foreign('user_id')

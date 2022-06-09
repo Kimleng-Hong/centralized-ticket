@@ -13,7 +13,7 @@
             <div class="content mb-5">
                 <div class="head d-flex justify-content-between align-items-center mb-5">
                     <h4 class="m-0">Partner List</h4>
-                    <a class="btn btn-success" href="{{ url('/create-partner') }}"> Register Partner </a>
+                    <a class="btn btn-success" href="{{ url('/create-user') }}"> Register Partner </a>
                 </div>
                 <div class="body">
                     <div class="row">
@@ -42,6 +42,7 @@
                                                     <td>{{ $partner->phone }}</td>
                                                     <td>{{ $partner->email }}</td>
                                                     <td>
+                                                        <a class="btn btn-primary" href="{{ url('show-partner/'.$partner->id) }}"> <i class="fas fa-list-alt"></i> </a>
                                                         <a class="btn btn-primary" href="#"> <i class="fa-solid fa-pen"></i> </a>
                                                         <a class="btn btn-danger" href="#"> <i class="fa-solid fa-trash"></i> </a>
                                                     </td>

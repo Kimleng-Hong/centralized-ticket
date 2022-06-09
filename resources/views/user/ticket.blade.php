@@ -25,35 +25,22 @@
                                         </div>
                                         <div class="info">
                                             <div class="title">
-                                                <a class="fw-bold text-dark text-decoration-underline" href="{{ url('detail-ticket/'.$ticket->id) }}"> {{ $ticket->name }} </a>                                                  
+                                                <p class="fw-bold text-dark"> {{ $ticket->name }} </p>                                                   
                                             </div>
                                             <div class="description">
                                                 <p>{{ $ticket->description }}</p>
                                             </div>
                                             <div class="location">
-                                                <p><i class="fas fa-user-tie text-success"></i> {{ $ticket->partner->name }} - <i class="fas fa-location-arrow text-success"></i> {{ $ticket->partner->location->name }}</p>
+                                                <p>{{ $ticket->partner->name }} - {{ $ticket->partner->location->name }}</p>
                                             </div>
                                             <div class="price">
-                                                <p class="fw-bold text-dark"><i class="fa-solid fa-dollar-sign text-success"></i> {{ $ticket->price }}</p>
+                                                <p class="fw-bold text-dark"><i class="fa-solid fa-dollar-sign"></i> {{ $ticket->price }}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="right col-md-2 col-sm-4 d-flex flex-column py-1"> 
-                                        <div class="d-flex justify-content-center">
-                                            <label for="ticket_amount" class="col-form-label">{{ __('Amount') }}</label>
-                                        </div>  
-                                        <div class="d-flex align-self-center col-md-10 mb-1">
-                                            <input id="ticket_name" type="text" class="form form-control @error('ticket_name') is-invalid @enderror" name="ticket_name" value="{{ old('ticket_name') }}" autocomplete="ticket_name" required>
-                                                @error('ticket_name')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                @enderror
-                                        </div>
-                                        <div class="d-flex align-self-center col-md-10">
-                                            <a class="btn btn-primary w-100" href="#buy-ticket/{id}"> Buy  </a>
-                                        </div>
+                                    <div class="right col-md-2 col-sm-4 d-flex flex-column p-0">
                                         
+                                        <a class="btn btn-primary rounded-0 py-3" href="#edit-ticket/{id}"> Buy  </a>
                                     </div>
                                 </div>
                             @endif

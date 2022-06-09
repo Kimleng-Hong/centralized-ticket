@@ -13,7 +13,11 @@
             <div class="content">
                 <div class="head d-flex justify-content-between align-items-center mb-3">
                     <h4 class="m-0">Account Information</h4>
-                    <a class="btn btn-primary" href="{{ url('edit-user/'.Auth::id()) }}"> Edit <i class="fa-solid fa-pen ps-2"></i> </a>
+                    @if(($users->partner_requesting == 'checking'))
+                        <a class="btn btn-primary" href="{{ url('edit-user/'.Auth::id()) }}"> Edit <i class="fa-solid fa-pen ps-2"></i> </a>
+                    @elseif(($users->partner_requesting == 'approved'))
+                        <a class="btn btn-danger" href="{{ url()->previous() }}"> Back </a>
+                    @endif
                 </div>
                 <div class="body">
                     <div class="top col-md-12">
@@ -24,13 +28,16 @@
                                         <th class="col-md-6">Name:</th> <td>{{ $users->partner->name }}</td>
                                     </tr>
                                     <tr>
-                                        <th class="col-md-3">Company Desciption:</th> <td class="col-md-9">{{ $users->partner->description }}</td>
+                                        <th>Phone Number:</th> <td class="col-md-9">{{ $users->phone }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Industry:</th> <td>{{ $users->partner->industry->name }}</td>
+                                        <th>Email Address:</th> <td>{{ $users->email }}</td>
                                     </tr>
                                     <tr>
                                         <th>Location:</th> <td>{{ $users->partner->location->name }}</td>
+                                    </tr>   
+                                    <tr>
+                                        <th>Industry:</th> <td>{{ $users->partner->industry->name }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -43,10 +50,10 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <th>Phone Number:</th> <td class="col-md-9">{{ $users->phone }}</td>
+                                    <th class="col-md-3">Company Desciption:</th> <td class="col-md-9">{{ $users->partner->description }}</td>
                                 </tr>
                                 <tr>
-                                    <th>Email Address:</th> <td>{{ $users->email }}</td>
+                                    <th>Company Address:</th> <td>{{ $users->partner->address }}</td>
                                 </tr>
                                 <tr>
                                     <th>Company Website:</th>
@@ -100,22 +107,28 @@
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-around">
-                            <div class="col-md-5">
+                            @if(($users->partner_requesting == 'checking'))
+                                <div class="col-md-5">
                                 <form method="POST" action="{{ url('approve-partner/'.$users->id)}}">
                                     @csrf
                                     @method('PUT')
                                     
                                     <button name='partner_requesting' class="btn btn-success w-100" type="submit" value='approved'>Approve</button>
                                 </form>
-                            </div>
-                            <div class="col-md-5">
-                                <form method="POST" action="{{ url('deny-partner/'.$users->id)}}">
-                                    @csrf
-                                    @method('PUT')
+                                </div>
+                                <div class="col-md-5">
+                                    <form method="POST" action="{{ url('deny-partner/'.$users->id)}}">
+                                        @csrf
+                                        @method('PUT')
 
-                                    <button name='partner_requesting' class="btn btn-danger w-100" type="submit" value='denied'>Deny</button>
-                                </form>
-                            </div>  
+                                        <button name='partner_requesting' class="btn btn-danger w-100" type="submit" value='denied'>Deny</button>
+                                    </form>
+                                </div>  
+                            @elseif(($users->partner_requesting == 'approved'))
+                                <div class="col-md-10">
+                                    <a class="btn btn-primary w-100" href="#edit-ticket/{id}"> Edit  </a>
+                                </div>
+                            @endif
                         </div>                        
                     </div>
                 </div>

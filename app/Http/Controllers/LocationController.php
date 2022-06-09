@@ -73,7 +73,10 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $location = Location::find($id);
+        $location->name = $request->input('location_name');
+        $location->update();
+        return redirect('/setup-master')->with('status', 'Your action is completed successfully!');
     }
 
     /**

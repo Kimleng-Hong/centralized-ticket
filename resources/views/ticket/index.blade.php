@@ -20,33 +20,67 @@
                 <div class="body">
                     <div class="box table-container mb-4">
                         @foreach ($tickets as $ticket)
-                            @if($ticket->partner_id == Auth::user()->partner->id)
-                                @if(($ticket->partner_approval == 'approved')) 
-                                    <div class="ticket-item row align-items-center p-0">
-                                        <div class="left col-md-10 col-6 d-flex">
-                                            <div class="photo pe-3">
-                                                
+                            @if (Auth::user()->user_role == "employee")
+                                @if($ticket->partner_id == Auth::user()->employee->partner_id)
+                                    @if(($ticket->partner_approval == 'approved')) 
+                                        <div class="ticket-item row align-items-center p-0">
+                                            <div class="left col-md-10 col-6 d-flex">
+                                                <div class="photo pe-3">
+                                                    
+                                                </div>
+                                                <div class="info">
+                                                    <div class="title">
+                                                        <p class="fw-bold text-dark"> {{ $ticket->name }} </p>                                                   
+                                                    </div>
+                                                    <div class="description">
+                                                        <p>{{ $ticket->description }}</p>
+                                                    </div>
+                                                    <div class="location">
+                                                        <p><i class="fas fa-user-tie text-success"></i> {{ $ticket->partner->name }} - <i class="fas fa-location-arrow"></i> {{ $ticket->partner->location->name }}</p>
+                                                    </div>
+                                                    <div class="price">
+                                                        <p class="fw-bold text-dark"><i class="fa-solid fa-dollar-sign text-success"></i> {{ $ticket->price }}</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="info">
-                                                <div class="title">
-                                                    <p class="fw-bold text-dark"> {{ $ticket->name }} </p>                                                   
-                                                </div>
-                                                <div class="description">
-                                                    <p>{{ $ticket->description }}</p>
-                                                </div>
-                                                <div class="location">
-                                                    <p>{{ $ticket->partner->name }} - {{ $ticket->partner->location->name }}</p>
-                                                </div>
-                                                <div class="price">
-                                                    <p class="fw-bold text-dark">$ {{ $ticket->price }}</p>
-                                                </div>
+                                            <div class="right col-md-2 col-sm-4 d-flex flex-column p-0"> 
+                                                @if(!($ticket->partner_approval == 'approved')) 
+                                                    <a class="btn btn-primary rounded-0 py-3" href="#edit-ticket/{id}"> Edit  </a>
+                                                    <a class="btn btn-danger rounded-0 py-3" href="#edit-ticket/{id}"> Delete </a>
+                                                @endif
                                             </div>
                                         </div>
-                                        <div class="right col-md-2 col-sm-4 d-flex flex-column p-0"> 
-                                            <a class="btn btn-primary rounded-0 py-3" href="#edit-ticket/{id}"> Edit  </a>
-                                            <a class="btn btn-danger rounded-0 py-3" href="#edit-ticket/{id}"> Delete </a>
+                                    @endif
+                                @endif
+                            @elseif ((Auth::user()->user_role == "partner"))
+                                @if($ticket->partner_id == Auth::user()->partner->id)
+                                    @if(($ticket->partner_approval == 'approved')) 
+                                        <div class="ticket-item row align-items-center p-0">
+                                            <div class="left col-md-10 col-6 d-flex">
+                                                <div class="photo pe-3">
+                                                    
+                                                </div>
+                                                <div class="info">
+                                                    <div class="title">
+                                                        <p class="fw-bold text-dark"> {{ $ticket->name }} </p>                                                   
+                                                    </div>
+                                                    <div class="description">
+                                                        <p>{{ $ticket->description }}</p>
+                                                    </div>
+                                                    <div class="location">
+                                                        <p>{{ $ticket->partner->name }} - {{ $ticket->partner->location->name }}</p>
+                                                    </div>
+                                                    <div class="price">
+                                                        <p class="fw-bold text-dark">$ {{ $ticket->price }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="right col-md-2 col-sm-4 d-flex flex-column p-0"> 
+                                                <a class="btn btn-primary rounded-0 py-3" href="#edit-ticket/{id}"> Edit  </a>
+                                                <a class="btn btn-danger rounded-0 py-3" href="#edit-ticket/{id}"> Delete </a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 @endif
                             @endif
                         @endforeach

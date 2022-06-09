@@ -32,7 +32,7 @@
                         <a class="nav-link py-2" aria-current="page" href="{{ url('/home') }}"> Home </a>
                     </li>
                     <li class="nav-item me-2">
-                        <a class="nav-link" aria-current="page" href="{{ url('index-ticket') }} "> Tickets </a>
+                        <a class="nav-link" aria-current="page" href="{{ url('show-ticket') }} "> Tickets </a>
                     </li>
                     <li class="nav-item me-2">
                         <a class="nav-link" aria-current="page" href="{{ url('/about') }}"> About Us</a>

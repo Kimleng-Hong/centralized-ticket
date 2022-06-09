@@ -57,7 +57,7 @@
                                     <tr class="text-center">
                                         <th scope="col">ID</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Description</th>
+                                        {{-- <th scope="col">Description</th> --}}
                                         <th scope="col">Phone</th>
                                         <th scope="col">Email</th>
                                         <th scope="col" colspan="3">Action</th>
@@ -69,7 +69,7 @@
                                             <tr class="text-center">
                                                 <td> {{ $user->id }}</td>
                                                 <td> {{ $user->partner->name }}</td>
-                                                <td> {{ $user->partner->description }}</td>
+                                                {{-- <td> {{ $user->partner->description }}</td> --}}
                                                 <td> {{ $user->phone }} </td>
                                                 <td> {{ $user->email }} </td>
                                                 <td>
