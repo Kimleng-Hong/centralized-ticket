@@ -32,6 +32,7 @@ class PartnerController extends Controller
         $user = User::find($id);
         $industry = Industry::all();
         $location = Location::all();
+        
         return view('partner.create', compact('user', 'industry', 'location'));
     }
 
@@ -51,8 +52,8 @@ class PartnerController extends Controller
         $partners->user_id = $users->id;
         $partners->name = $request->input('company_name');
         $partners->description = $request->input('company_description');
-        $partners->industry = $request->input('company_industry');
-        $partners->location = $request->input('company_location');
+        $partners->industry_id = $request->input('company_industry');
+        $partners->location_id = $request->input('company_location');
         $partners->address = $request->input('company_address');
         $partners->facebook = $request->input('company_facebook');
         $partners->instagram = $request->input('company_instagram');
@@ -71,7 +72,8 @@ class PartnerController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::find($id);
+        return view('partner.show', compact('users'));
     }
 
     /**
@@ -116,20 +118,20 @@ class PartnerController extends Controller
 
     public function approve(Request $request, $id)
     {
-        $users = User::find($id);
-        $users->user_role = "partner";
-        $users->partner_requesting = $request->input('partner_requesting');
-        $users->update();
+        $user = User::find($id);
+        $user->user_role = "partner";
+        $user->partner_requesting = $request->input('partner_requesting');
+        $user->update();
 
-        return Redirect::back()->with('status','Operation Successful!');
+        return redirect('/home')->with('status','Operation Successful!');
     }
 
     public function deny(Request $request, $id)
     {
-        $users = User::find($id);
-        $users->partner_requesting = $request->input('partner_requesting');
-        $users->update();
+        $user = User::find($id);
+        $user->partner_requesting = $request->input('partner_requesting');
+        $user->update();
 
-        return Redirect::back()->with('status','Operation Successful!');
+        return redirect('/home')->with('status','Operation Successful!');
     }
 }

@@ -27,8 +27,8 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()->user_role == "master") {
-            $users = User::all();
-            return view('master.index', compact('users'));
+            $partners = User::all();
+            return view('master.index', compact('partners'));
         }
         elseif (Auth::user()->user_role == "partner") {
             return view('partner.index');

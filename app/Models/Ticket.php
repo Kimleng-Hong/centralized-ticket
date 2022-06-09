@@ -9,12 +9,23 @@ class Ticket extends Model
 {
     use HasFactory;
     protected $table = 'tickets';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'name',
         'description',
         'price',
-        'sale_parter',
-        'registered_by',
+        'partner_id',
+        'employee_id',
         'partner_approval',
     ];
+
+    public function partner()
+    {
+        return $this->belongsTo(Partner::class);
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
 }

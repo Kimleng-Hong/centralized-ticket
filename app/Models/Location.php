@@ -14,8 +14,8 @@ class Location extends Model
         'name',
     ];
 
-        public function partner() 
+    public function partner() 
     {
-        return $this->hasMany(Partner::class, 'location_id', 'id');
+        return $this->hasMany(Partner::class);
     }
 }

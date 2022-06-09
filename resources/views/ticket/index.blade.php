@@ -13,26 +13,43 @@
             <div class="content">
                 <div class="head d-flex justify-content-between align-items-center mb-5">
                     <h4 class="m-0">Ticket List</h4>
-                    <a class="btn btn-primary" href="{{ url('create-ticket') }}"> Add Ticket </a>
+                    @if(Auth::user()->user_role == "employee")
+                        <a class="btn btn-primary" href="{{ url('create-ticket') }}"> Add Ticket </a>
+                    @endif
                 </div>
                 <div class="body">
                     <div class="box table-container mb-4">
-                        <div class="ticket-item row align-items-center">
-                            <div class="left col-md-9 col-6">
-                                <div class="photo"></div>
-                                <div class="info">
-                                    <div class="title">
-                                        <h6 class="fw-bold">blah</h6>
+                        @foreach ($tickets as $ticket)
+                            @if($ticket->partner_id == Auth::user()->partner->id)
+                                @if(($ticket->partner_approval == 'approved')) 
+                                    <div class="ticket-item row align-items-center p-0">
+                                        <div class="left col-md-10 col-6 d-flex">
+                                            <div class="photo pe-3">
+                                                
+                                            </div>
+                                            <div class="info">
+                                                <div class="title">
+                                                    <p class="fw-bold text-dark"> {{ $ticket->name }} </p>                                                   
+                                                </div>
+                                                <div class="description">
+                                                    <p>{{ $ticket->description }}</p>
+                                                </div>
+                                                <div class="location">
+                                                    <p>{{ $ticket->partner->name }} - {{ $ticket->partner->location->name }}</p>
+                                                </div>
+                                                <div class="price">
+                                                    <p class="fw-bold text-dark">$ {{ $ticket->price }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right col-md-2 col-sm-4 d-flex flex-column p-0"> 
+                                            <a class="btn btn-primary rounded-0 py-3" href="#edit-ticket/{id}"> Edit  </a>
+                                            <a class="btn btn-danger rounded-0 py-3" href="#edit-ticket/{id}"> Delete </a>
+                                        </div>
                                     </div>
-                                    <div class="description">
-                                        <p>blah blah</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right col-md-3 col-sm-4 d-flex justify-content-end"> 
-                                <a class="btn btn-primary" href="#edit-ticket/{id}"> Edit <i class="fa-solid fa-pen ps-2"></i> </a>
-                            </div>
-                        </div>
+                                @endif
+                            @endif
+                        @endforeach
                     </div>
                     @if(Auth::user()->user_role == "partner")
                         <div class="box table-container mb-4">
@@ -53,7 +70,7 @@
                                     </thead>
                                     <tbody>    
                                         @foreach ($tickets as $ticket)
-                                            @if($ticket->sale_partner == Auth::id())
+                                            @if($ticket->partner_id == Auth::user()->partner->id)
                                                 @if(($ticket->partner_approval == 'requesting')) 
                                                     <tr class="text-center">
                                                     <td> {{ $ticket->id }}</td>
@@ -61,7 +78,7 @@
                                                     <td> {{ $ticket->description }}</td>
                                                     <td> {{ $ticket->price }}</td>
                                                     <td> 
-                                                        {{-- {{ $user->employee->first_name }} {{ $user->employee->last_name }} </td> --}}
+                                                        {{ $ticket->employee->first_name }} {{ $ticket->employee->last_name }}
                                                     <td>
                                                         <form method="POST" action="{{ url('approve-ticket/'.$ticket->id)}}">
                                                             @csrf

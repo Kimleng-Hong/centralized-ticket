@@ -45,7 +45,7 @@
                                 <label for="company_industry" class="col-form-label text-md-end">{{ __('Industry') }}</label>
                                 <select class="form form-control" id="company_industry" name="company_industry">
                                     @foreach ($industry as $industry)
-                                        <option value='{{ $industry->name }}'> {{ $industry->name }} </option>
+                                        <option value='{{ $industry->id }}'> {{ $industry->name }} </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -53,7 +53,7 @@
                                 <label for="company_location" class="col-form-label text-md-end">{{ __('Location') }}</label>
                                 <select class="form form-control" id="company_location" name="company_location">
                                     @foreach ($location as $location)
-                                        <option value='{{ $location->name }}'> {{ $location->name }} </option>
+                                        <option value='{{ $location->id }}'> {{ $location->name }} </option>
                                     @endforeach
                                 </select>
                             </div>

@@ -21,7 +21,7 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th>Name:</th> <td>{{ $users->customer->first_name }} {{ $users->customer->last_name }}</td>
+                                        <th class="col-md-6">Name:</th> <td>{{ $users->customer->first_name }} {{ $users->customer->last_name }}</td>
                                     </tr>
                                     <tr>
                                         <th>Phone Number:</th> <td>{{ $users->phone }}</td>
@@ -41,15 +41,15 @@
                     </div>
                 </div>
                 <div class="row mt-3">
-                    @if($users->partner_requesting == 'Null')
+                    @if($users->partner_requesting == 'null')
                         <a class="btn btn-primary w-100" href="{{ url('create-partner/'.Auth::id()) }}"> 
                             {{ __('Interested in Becoming Our Partner?') }} 
                         </a>
-                    @elseif($users->partner_requesting == 'Checking')
+                    @elseif($users->partner_requesting == 'checking')
                         <div class="table-container">
                             <h5 class="text-center p-2"> The partnership request is currently being check by the admin</h5>
                         </div>
-                    @elseif($users->partner_requesting == 'Denied')
+                    @elseif($users->partner_requesting == 'denied')
                         <div class="table-container">
                             <h5 class="text-center p-2"> The partnership request has been denied</h5>
                         </div>
@@ -62,13 +62,13 @@
                                         <table class="table">
                                             <tbody>
                                                 <tr>
-                                                    <th>Company Name:</th> <td>{{ $users->partner->name }}</td>
+                                                    <th class="col-md-6">Company Name:</th> <td>{{ $users->partner->name }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Type of Industry:</th> <td>{{ $users->partner->industry }}</td>
+                                                    <th>Type of Industry:</th> <td>{{ $users->partner->industry->name }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Company Location:</th> <td>{{ $users->partner->location }}</td>
+                                                    <th>Company Location:</th> <td>{{ $users->partner->location->name }}</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Comapny Address:</th> <td>{{ $users->partner->address }}</td>

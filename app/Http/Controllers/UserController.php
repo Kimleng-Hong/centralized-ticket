@@ -56,7 +56,7 @@ class UserController extends Controller
         $user->created_by = Auth::id();
 
         $user->save();
-        return view('welcome.index');
+        return redirect('/home')->with('status','Operation Successful!');
     }
 
     /**

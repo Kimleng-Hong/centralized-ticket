@@ -6,6 +6,8 @@ use App\Http\Controllers\CustomerControlller;
 use App\Http\Controllers\EmployeeControlller;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IndustryController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TicketController;
@@ -27,6 +29,8 @@ use Illuminate\Support\Facades\Route;
 
 // Guest Route
 Route::get('/', [GuestController::class, 'index']);
+Route::get('/about', [GuestController::class, 'about']);
+Route::get('/contact', [GuestController::class, 'contact']);
 
 // Auth Home Route
 Auth::routes();
@@ -34,50 +38,49 @@ Route::get('/home', [HomeController::class, 'index']);
 
 //Master Route
 Route::get('/index-master', [MasterController::class, 'index']);
-Route::get('/create-master', [MasterController::class, 'index']);
+Route::get('/create-master', [MasterController::class, 'create']);
+Route::post('store-master', [MasterController::class, 'store']);
 Route::get('/setup-master', [MasterController::class, 'setup']);
 /* ======== Industry ======== */
-Route::get('/create-industry', [MasterController::class, 'create_industry']);
-Route::post('store-industry', [MasterController::class, 'store_industry']);
-Route::get('edit-industry/{id}', [MasterController::class, 'edit_industry']);
-Route::put('update-industry/{id}', [MasterController::class, 'update_industry']);
+Route::get('/create-industry', [IndustryController::class, 'create']);
+Route::post('store-industry', [IndustryController::class, 'store']);
+Route::get('edit-industry/{id}', [IndustryController::class, 'edit']);
+Route::put('update-industry/{id}', [IndustryController::class, 'update']);
 /* ======== Location ======== */
-Route::get('/create-location', [MasterController::class, 'create_location']);
-Route::post('store-location', [MasterController::class, 'store_location']);
-Route::get('edit-location/{id}', [MasterController::class, 'edit_location']);
-Route::put('update-location/{id}', [MasterController::class, 'update_location']);
+Route::get('/create-location', [LocationController::class, 'create']);
+Route::post('store-location', [LocationController::class, 'store']);
+Route::get('edit-location/{id}', [LocationController::class, 'edit']);
+Route::put('update-location/{id}', [LocationController::class, 'update']);
 
-/* ======== User ======== */
+//User Route
 Route::get('create-user', [UserController::class, 'create']);
 Route::post('store-user', [UserController::class, 'store']);
 Route::get('/show-user/{id}', [UserController::class, 'show']);
 Route::get('/edit-user/{id}', [UserController::class, 'edit']);
 Route::put('update-user/{id}', [UserController::class, 'update']);
 
-
-/* ======== Master ======== */
-Route::get('create-master', [MasterController::class, 'create']);
-Route::post('store-master', [MasterController::class, 'store']);
-
-/* ======== Partner ======== */
+//Partner Route
 Route::get('/create-partner/{id}', [PartnerController::class, 'create']);
 Route::post('store-partner/{id}', [PartnerController::class, 'store']);
+Route::get('/show-partner/{id}', [PartnerController::class, 'show']);
 Route::get('/edit-partner/{id}', [PartnerController::class, 'edit']);
 Route::put('update-partner/{id}', [PartnerController::class, 'update']);
 Route::get('/request-partner', [PartnerController::class, 'request']);
 Route::put('/approve-partner/{id}', [PartnerController::class, 'approve']);
 Route::put('/deny-partner/{id}', [PartnerController::class, 'deny']);
-/* ======== Customer ======== */
+
+//Employee Route
+Route::get('/index-employee', [EmployeeControlller::class, 'index']);
+Route::get('/create-employee/{id}', [EmployeeControlller::class, 'create']);
+Route::post('store-employee/{id}', [EmployeeControlller::class, 'store']);
+Route::get('/show-employee', [EmployeeControlller::class, 'show']);
+
+//Customer Route
 Route::get('/create-customer/{id}', [CustomerControlller::class, 'create']);
 Route::post('store-customer/{id}', [CustomerControlller::class, 'store']);
 Route::get('/show-customer/{id}', [CustomerControlller::class, 'show']);
 Route::get('/edit-customer/{id}', [CustomerControlller::class, 'edit']);
 Route::put('update-customer/{id}', [CustomerControlller::class, 'update']);
-/* ======== Employee ======== */
-Route::get('/index-employee', [EmployeeControlller::class, 'index']);
-Route::get('/create-employee/{id}', [EmployeeControlller::class, 'create']);
-Route::post('store-employee/{id}', [EmployeeControlller::class, 'store']);
-Route::get('/show-employee', [EmployeeControlller::class, 'show']);
 
 //Ticket Route  
 Route::get('/index-ticket', [TicketController::class, 'index']);

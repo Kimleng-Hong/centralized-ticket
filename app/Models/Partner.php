@@ -17,7 +17,6 @@ class Partner extends Model
         'industry_id',
         'location_id',
         'address',
-        //TODO'established_in',
         'website',
         'facebook',
         'intagram',
@@ -29,13 +28,23 @@ class Partner extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function employee()
+    {
+        return $this->hasMany(Employee::class, 'partner_id', 'id');
+    }
+
     public function industry()
     {
-        return $this->belongTo(Industry::class);        
+        return $this->belongsTo(Industry::class);        
     }
 
     public function location()
     {
         return $this->belongsTo(Location::class);
+    }
+
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class, 'partner_id', 'id');
     }
 }

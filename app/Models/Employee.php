@@ -14,11 +14,21 @@ class Employee extends Model
         'user_id',
         'first_name',
         'last_name',
-        'work_for'
+        'partner_id'
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'id');
+    }
+
+    public function partner()  
+    {
+        return $this->belongsTo(Partner::class);
+    }
+
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class, 'employee_id', 'id');
     }
 }

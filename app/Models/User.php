@@ -24,7 +24,6 @@ class User extends Authenticatable
         'email',
         'password',
         'partner_requesting',
-        'created_by',
     ];
 
     public function partner() 

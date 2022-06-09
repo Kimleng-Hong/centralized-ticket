@@ -16,6 +16,6 @@ class Industry extends Model
 
     public function partner() 
     {
-        return $this->hasMany(Partner::class, 'industry_id', 'id');
+        return $this->hasMany(Partner::class);
     }
 }

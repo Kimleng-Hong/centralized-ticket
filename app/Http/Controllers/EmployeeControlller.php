@@ -46,7 +46,7 @@ class EmployeeControlller extends Controller
         $employees->user_id = $user->id;
         $employees->first_name = $request->input('first_name');
         $employees->last_name = $request->input('last_name');
-        $employees->work_for = Auth::id();
+        $employees->partner_id = Auth::user()->partner->id;
         
         $user->save();
         $employees->save();

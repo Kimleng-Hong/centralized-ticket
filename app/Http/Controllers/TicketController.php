@@ -18,7 +18,6 @@ class TicketController extends Controller
     public function index()
     {
         $tickets = Ticket::all();
-        // $users = User::all();
         return view('ticket.index', compact('tickets'));
     }
 
@@ -41,22 +40,18 @@ class TicketController extends Controller
     public function store(Request $request, $id)
     {
         $ticket = new Ticket;
-        $employee = User::find($id);
+        $user = User::find($id);
 
         $ticket->name = $request->input('ticket_name');
         $ticket->description = $request->input('ticket_description');
         $ticket->price = $request->input('ticket_price');
-        if (Auth::user()->user_role == "partner") {
-            $ticket->sale_partner = Auth::id();
-            $ticket->registered_by = Auth::id();
-        } elseif(Auth::user()->user_role == "employee") {
-            $ticket->sale_partner = $employee->employee->work_for;
-            $ticket->registered_by = $employee->employee->id;
-        }   
+
+        $ticket->partner_id = $user->employee->partner_id;
+        $ticket->employee_id = $user->employee->id;  
         $ticket->partner_approval = 'requesting';
 
         $ticket->save();
-        return redirect('/')->with('status', 'Your registration is completed!');
+        return redirect('/home')->with('status', 'Your registration is completed!');
     }
 
     /**
