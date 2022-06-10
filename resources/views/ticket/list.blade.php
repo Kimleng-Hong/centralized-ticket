@@ -19,13 +19,13 @@
                         @foreach ($tickets as $ticket)
                             @if(($ticket->partner_approval == 'approved')) 
                                 <div class="ticket-item row align-items-center p-0">
-                                    <div class="left col-md-10 col-6 d-flex">
+                                    <div class="col-md-10 col-6 d-flex">
                                         <div class="photo pe-3">
                                             
                                         </div>
                                         <div class="info">
                                             <div class="title">
-                                                <a class="fw-bold text-dark text-decoration-underline" href="{{ url('detail-ticket/'.$ticket->id) }}"> {{ $ticket->name }} </a>                                                  
+                                                <a class="fw-bold text-dark" href="{{ url('buy-ticket/'.$ticket->id) }}"> {{ $ticket->name }} </a>                                                  
                                             </div>
                                             <div class="description">
                                                 <p>{{ $ticket->description }}</p>
@@ -37,23 +37,6 @@
                                                 <p class="fw-bold text-dark"><i class="fa-solid fa-dollar-sign text-success"></i> {{ $ticket->price }}</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="right col-md-2 col-sm-4 d-flex flex-column py-1"> 
-                                        <div class="d-flex justify-content-center">
-                                            <label for="ticket_amount" class="col-form-label">{{ __('Amount') }}</label>
-                                        </div>  
-                                        <div class="d-flex align-self-center col-md-10 mb-1">
-                                            <input id="ticket_name" type="text" class="form form-control @error('ticket_name') is-invalid @enderror" name="ticket_name" value="{{ old('ticket_name') }}" autocomplete="ticket_name" required>
-                                                @error('ticket_name')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                @enderror
-                                        </div>
-                                        <div class="d-flex align-self-center col-md-10">
-                                            <a class="btn btn-primary w-100" href="#buy-ticket/{id}"> Buy  </a>
-                                        </div>
-                                        
                                     </div>
                                 </div>
                             @endif

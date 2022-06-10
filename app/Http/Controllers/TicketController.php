@@ -106,6 +106,12 @@ class TicketController extends Controller
         return view('ticket.list', compact('tickets'));
     }
 
+    public function buy($id)
+    {
+        $ticket = Ticket::find($id);
+        return view('ticket.buy', compact('ticket'));
+    }
+
 
     public function approve(Request $request, $id)
     {

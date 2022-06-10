@@ -25,7 +25,7 @@
     color: #fff;
 }
 
-.content .body .row .box {
+.box {
     background: #e7e7e7;
     border-radius: 0.75rem;
 }
@@ -37,6 +37,11 @@
 
 .content .body .row .box h4 {
     margin: 0;
+}
+
+.content .body .ticket-information {
+    border-bottom: 0.05rem solid #bbbbbb;
+    padding: 1rem;
 }
 /* Content Section */
 

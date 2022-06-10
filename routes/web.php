@@ -91,6 +91,7 @@ Route::get('/show-ticket/{id}', [TicketController::class, 'show']);
 // Route::get('/edit-ticket/{id}', [TicketController::class, 'edit']);
 // Route::put('update-ticket/{id}', [TicketController::class, 'update']);
 Route::get('/list-ticket', [TicketController::class, 'list']); 
+Route::get('/buy-ticket/{id}', [TicketController::class, 'buy']); 
 Route::put('/approve-ticket/{id}', [TicketController::class, 'approve']);
 Route::put('/deny-ticket/{id}', [TicketController::class, 'deny']);
 
