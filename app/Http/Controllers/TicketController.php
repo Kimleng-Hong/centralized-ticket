@@ -60,10 +60,10 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        $tickets = Ticket::all();
-        return view('ticket.show', compact('tickets'));
+        $ticket = Ticket::find($id);
+        return view('ticket.show', compact('ticket'));
     }
 
     /**
@@ -100,10 +100,10 @@ class TicketController extends Controller
         //
     }
 
-    public function detail($id)
+    public function list()
     {
-        $ticket = Ticket::find($id);
-        return view('ticket.detail', compact('ticket'));
+        $tickets = Ticket::all();
+        return view('ticket.list', compact('tickets'));
     }
 
 

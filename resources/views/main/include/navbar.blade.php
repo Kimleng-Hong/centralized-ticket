@@ -6,9 +6,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                @guest
                     <li class="nav-item me-2">
-                        <a class="nav-link" aria-current="page" href="{{ url('/') }}"> Home </a>
+                        <a class="nav-link" aria-current="page" href="{{ url('/') }}"> Welcome </a>
+                    </li>
+                    @guest
+                    @else
+                        <li class="nav-item me-2">
+                            <a class="nav-link py-2" aria-current="page" href="{{ url('/home') }}"> Home </a>
+                        </li>
+                    @endguest
+                    <li class="nav-item me-2">
+                        <a class="nav-link" aria-current="page" href="{{ url('/list-ticket') }} "> Ticket </a>
+                    </li>
+                    <li class="nav-item me-2">
+                        <a class="nav-link" aria-current="page" href="{{ url('list-partner') }} "> Company </a>
                     </li>
                     <li class="nav-item me-2">
                         <a class="nav-link" aria-current="page" href="{{ url('/about') }}"> About Us </a>
@@ -16,6 +27,7 @@
                     <li class="nav-item me-2">
                         <a class="nav-link" aria-current="page" href="{{ url('/contact') }}"> Contact Us </a>
                     </li>
+                @guest
                     @if (Route::has('register') or Route::has('login'))
                         <li class="me-2 my-1">
                             <a class="btn btn-success w-100" href="{{ route('login') }}"> Login </a>
@@ -25,21 +37,6 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item me-2">
-                        <a class="nav-link" aria-current="page" href="{{ url('/') }}"> Welcome </a>
-                    </li>
-                    <li class="nav-item me-2">
-                        <a class="nav-link py-2" aria-current="page" href="{{ url('/home') }}"> Home </a>
-                    </li>
-                    <li class="nav-item me-2">
-                        <a class="nav-link" aria-current="page" href="{{ url('show-ticket') }} "> Tickets </a>
-                    </li>
-                    <li class="nav-item me-2">
-                        <a class="nav-link" aria-current="page" href="{{ url('/about') }}"> About Us</a>
-                    </li>
-                    <li class="nav-item me-2">
-                        <a class="nav-link" aria-current="page" href="{{ url('/contact') }}"> Contact Us </a>
-                    </li>
                     <li class="me-2 my-1 dropdown">
                         <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->email }}

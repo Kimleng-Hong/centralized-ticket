@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Partner;
 use App\Models\Industry;
 use App\Models\Location;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -108,6 +109,12 @@ class PartnerController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function list()
+    {
+        $partners = User::all();
+        return view('partner.list', compact('partners'));
     }
 
     public function request()
