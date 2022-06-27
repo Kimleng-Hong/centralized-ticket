@@ -21,7 +21,6 @@ class Partner extends Model
         'facebook',
         'intagram',
         'linkedin',
-        // 'account_approval',
     ];
 
     public function user()

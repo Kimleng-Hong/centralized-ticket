@@ -90,9 +90,9 @@
                                                 <th>Company Website:</th>
                                                 <td> 
                                                     @if($users->partner->website == null) 
-                                                        Empty
+                                                        <p class="text-danger m-0">Owner Not Provided</p> 
                                                     @else
-                                                        {{ $users->partner->website }}
+                                                        <a href="{{ $users->partner->website }}">{{ $users->partner->website }}</a>
                                                     @endif
                                                 </td>
                                             </tr>
@@ -100,9 +100,9 @@
                                                 <th>Company Facebook:</th>
                                                 <td>
                                                     @if($users->partner->facebook == null) 
-                                                        Empty
+                                                        <p class="text-danger m-0">Owner Not Provided</p> 
                                                     @else
-                                                        {{ $users->partner->facebook }}
+                                                        <a href="{{ $users->partner->facebook }}">{{ $users->partner->facebook }}</a>
                                                     @endif
                                                 </td>
                                             </tr>
@@ -110,9 +110,9 @@
                                                 <th>Comapny Instagram:</th>
                                                 <td>
                                                     @if($users->partner->instagram == null) 
-                                                        Empty
+                                                        <p class="text-danger m-0">Owner Not Provided</p> 
                                                     @else
-                                                        {{ $users->partner->instagram }}
+                                                        <a href="{{ $users->partner->instagram }}"> {{ $users->partner->instagram }} </a>
                                                     @endif
                                                 </td>
                                             </tr>
@@ -120,16 +120,22 @@
                                                 <th>Comapny Linkedin:</th>
                                                 <td>
                                                     @if($users->partner->linkedin == null) 
-                                                        Empty
+                                                        <p class="text-danger m-0">Owner Not Provided</p> 
                                                     @else
-                                                        {{ $users->partner->linkedin }}
+                                                        <a href="{{ $users->partner->linkedin }}">{{ $users->partner->linkedin }}</a>
                                                     @endif
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <th>Admin Approval:</th>
                                                 <td>
-                                                    <p class="approved"> {{ $users->partner_requesting }} </p>
+                                                    <p class="approved m-0"> {{ $users->partner_requesting }}</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Becoming a Member Since:</th>
+                                                <td>
+                                                    <p class="m-0"> {{ isset($users->partner->created_at) ? $users->partner->created_at->format('m / d / Y') : $users->email }}</p>
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -21,6 +21,10 @@ a {
     color: var(--green) !important;
 }
 
+.bg-facebook {
+    background: var(--blue);
+}
+
 .bg-gray {
     background: var(--gray) !important;
 }

@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('linkedin')->nullable();
-            // $table->enum('account_approval',['approved', 'denied']);
             $table->timestamps();
 
             $table->foreign('user_id')

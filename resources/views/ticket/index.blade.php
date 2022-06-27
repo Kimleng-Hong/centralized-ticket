@@ -25,10 +25,12 @@
                                     @if(($ticket->partner_approval == 'approved')) 
                                         <div class="ticket-item row align-items-center p-0">
                                             <div class="left col-md-10 col-6 d-flex">
-                                                <div class="photo pe-3">
-                                                    
+                                                <div class="ticket-photo col-md-2 m-0 d-flex justify-content-center">
+                                                    <figure class="image m-0">
+                                                        <img src="https://luxurytravelvietnam.com/blog/wp-content/uploads/2020/02/Phnom-Phenh-Royal-Palace-history.jpg" alt="Royal Palace Picture">
+                                                    </figure>
                                                 </div>
-                                                <div class="info">
+                                                <div class="info col-md-9 ms-3">
                                                     <div class="title">
                                                         <p class="fw-bold text-dark"> {{ $ticket->name }} </p>                                                   
                                                     </div>
@@ -45,7 +47,7 @@
                                             </div>
                                             <div class="right col-md-2 col-sm-4 d-flex flex-column p-0"> 
                                                 @if(!($ticket->partner_approval == 'approved')) 
-                                                    <a class="btn btn-primary rounded-0 py-3" href="#edit-ticket/{id}"> Edit  </a>
+                                                    <a class="btn btn-primary rounded-0 py-3" href="#edit-ticket/{id}"> Edit</a>
                                                     <a class="btn btn-danger rounded-0 py-3" href="#edit-ticket/{id}"> Delete </a>
                                                 @endif
                                             </div>
@@ -57,10 +59,12 @@
                                     @if(($ticket->partner_approval == 'approved')) 
                                         <div class="ticket-item row align-items-center p-0">
                                             <div class="left col-md-10 col-6 d-flex">
-                                                <div class="photo pe-3">
-                                                    
+                                                <div class="ticket-photo col-md-2 m-0 d-flex justify-content-center">
+                                                    <figure class="image m-0">
+                                                        <img src="https://luxurytravelvietnam.com/blog/wp-content/uploads/2020/02/Phnom-Phenh-Royal-Palace-history.jpg" alt="Royal Palace Picture">
+                                                    </figure>
                                                 </div>
-                                                <div class="info">
+                                                <div class="info col-md-9 ms-3">
                                                     <div class="title">
                                                         <p class="fw-bold text-dark"> {{ $ticket->name }} </p>                                                   
                                                     </div>
@@ -71,12 +75,12 @@
                                                         <p>{{ $ticket->partner->name }} - {{ $ticket->partner->location->name }}</p>
                                                     </div>
                                                     <div class="price">
-                                                        <p class="fw-bold text-dark">$ {{ $ticket->price }}</p>
+                                                        <p class="fw-bold text-dark"><i class="fa-solid fa-dollar-sign text-success"></i> {{ $ticket->price }}</p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="right col-md-2 col-sm-4 d-flex flex-column p-0"> 
-                                                <a class="btn btn-primary rounded-0 py-3" href="#edit-ticket/{id}"> Edit  </a>
+                                                <a class="btn btn-primary rounded-0 py-3" href="#edit-ticket/{id}"> Edit </a>
                                                 <a class="btn btn-danger rounded-0 py-3" href="#edit-ticket/{id}"> Delete </a>
                                             </div>
                                         </div>
