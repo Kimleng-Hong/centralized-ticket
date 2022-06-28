@@ -106,7 +106,9 @@
                                     <p class="text-danger m-0">Owner Not Provide</p>
                                 @else
                                     @if(!($ticket->partner->facebook == null)) 
-                                        <a class="btn btn-primary" href="{{ $ticket->partner->facebook }}"><i class="fab fa-facebook-square text-white"></i></a>   
+                                        <a class="btn btn-primary" href="{{ $ticket->partner->facebook }}"><i class="fab fa-facebook-square text-white"></i></a>
+                                        <a class="btn btn-danger" href="{{ $ticket->partner->instagram }}"><i class="fab fa-instagram text-white"></i></a>
+                                        <a class="btn btn-primary" href="{{ $ticket->partner->linkedin }}"><i class="fab fa-linkedin-in text-white"></i></a>
                                     @elseif(!($ticket->partner->instagram == null))
                                         <a class="btn btn-danger" href="{{ $ticket->partner->instagram }}"><i class="fab fa-instagram text-white"></i></a>
                                     @elseif(!($ticket->partner->linkedin == null))

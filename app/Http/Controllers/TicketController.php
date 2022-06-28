@@ -46,6 +46,15 @@ class TicketController extends Controller
         $ticket->description = $request->input('ticket_description');
         $ticket->price = $request->input('ticket_price');
 
+        if($request->hasFile('image'))
+        {
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $file->move('uploads/ticket/', $filename);
+            $ticket->image = $filename;
+        }
+
         $ticket->partner_id = $user->employee->partner_id;
         $ticket->employee_id = $user->employee->id;  
         $ticket->partner_approval = 'requesting';

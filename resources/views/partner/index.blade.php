@@ -11,7 +11,7 @@
         @include("extra.side-navbar")
         <div class="col-md-9 col-12 my-3">
             <div class="content mb-5">
-                <div class="head d-flex justify-content-between align-items-center mb-5">
+                <div class="head d-flex justify-content-between align-items-center mb-3">
                     <h4 class="m-0">Home</h4>
                 </div>
                 <div class="body">
@@ -19,7 +19,6 @@
                         <div class="box table-container mb-4">
                             <div class="title d-flex justify-content-between align-items-center pt-2">    
                                 <h4 class="m-0">Company Income</h4>
-                                <a class="btn btn-success" href="{{ url('/create-user') }}"> Register Employee </a>
                             </div>
                             <div class="table-responsive pt-3 mb-3">
                                 <table class="table table-striped">
@@ -43,7 +42,7 @@
                                             <td>03/06/2022</td>
                                         </tr>
                                         <tr class="text-center">
-                                            <td>1</td>
+                                            <td>2</td>
                                             <td>Ticket Customer6</td>
                                             <td>12300212</td>
                                             <td>Customer 2</td>
@@ -51,24 +50,32 @@
                                             <td>03/06/2022</td>
                                         </tr>
                                         <tr class="text-center">
-                                            <td>1</td>
+                                            <td>3</td>
                                             <td>Ticket Customer6</td>
-                                            <td>12300212</td>
+                                            <td>12301212</td>
                                             <td>Customer 2</td>
                                             <td><i class="fa-solid fa-dollar-sign text-success"></i> 2</td>
                                             <td>03/06/2022</td>
                                         </tr>
                                         <tr class="text-center">
-                                            <td>1</td>
+                                            <td>4</td>
                                             <td>Ticket Customer6</td>
-                                            <td>12300212</td>
+                                            <td>123313234</td>
                                             <td>Customer 2</td>
                                             <td><i class="fa-solid fa-dollar-sign text-success"></i> 2</td>
                                             <td>03/06/2022</td>
+                                        </tr>
+                                        <tr class="text-center">
+                                            <td>5</td>
+                                            <td>Avengers Headquarters</td>
+                                            <td>12304252</td>
+                                            <td>Kimleng Customer</td>
+                                            <td><i class="fa-solid fa-dollar-sign text-success"></i> 8</td>
+                                            <td>21/06/2022</td>
                                         </tr>
                                         <tr>
                                             <td colspan="4" class="text-center fw-bold">Total Amount: </td>
-                                            <td colspan="2" class="text-start fw-bold"><i class="fa-solid fa-dollar-sign text-success"></i> 10000</td>
+                                            <td colspan="2" class="text-start fw-bold"><i class="fa-solid fa-dollar-sign text-success"></i> 16 </td>
                                         </tr>
                                     </tbody>
                                 </table>

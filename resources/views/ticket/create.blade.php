@@ -52,6 +52,10 @@
                             </div>
                         </div>
 
+                        <div class="mb-2">
+                            <a href="#" class="fw-bold"> Add Photos </a>
+                        </div>
+
                         <div class="row mt-4 mb-0">
                             <div class="col-md-12">
                                 <button type="submit" class="w-100 btn btn-primary">

@@ -27,7 +27,7 @@
                                             <div class="left col-md-10 col-6 d-flex">
                                                 <div class="ticket-photo col-md-2 m-0 d-flex justify-content-center">
                                                     <figure class="image m-0">
-                                                        <img src="https://luxurytravelvietnam.com/blog/wp-content/uploads/2020/02/Phnom-Phenh-Royal-Palace-history.jpg" alt="Royal Palace Picture">
+                                                        <img src="https://cdn1.parksmedia.wdprapps.disney.com/resize/mwImage/1/1600/900/75/dam/disneyland/destinations/disney-california-adventure/avengers-campus/campus-night-16x9.jpg?1639110328494" alt="Royal Palace Picture">
                                                     </figure>
                                                 </div>
                                                 <div class="info col-md-9 ms-3">
