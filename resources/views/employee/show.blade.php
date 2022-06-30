@@ -17,12 +17,12 @@
                 <div class="body">
                     <div class="row">
                         <div class="box table-container mb-4">
-                            <div class="title d-flex justify-content-between align-items-center pt-2">    
-                                <h4 class="m-0">Official Employee List</h4>
-                                <a class="btn btn-success" href="{{ url('/create-user') }}"> Register Employee </a>
+                            <div class="title d-flex justify-content-between align-items-center py-2">    
+                                <h4 class="fw-bold m-0">Official Employee List</h4>
+                                <a class="fw-bold btn btn-success" href="{{ url('/create-user') }}"> Register Employee </a>
                             </div>
-                            <div class="table-responsive pt-3 mb-3">
-                                <table class="table table-dark table-striped">
+                            <div class="card table-responsive mb-3">
+                                <table class="table table-striped m-0">
                                     <thead>
                                         <tr class="text-center">
                                             <th scope="col">ID</th>
@@ -42,7 +42,7 @@
                                                     <td>{{ $user->phone }}</td>
                                                     <td>{{ $user->email }}</td>
                                                     <td>
-                                                        <a class="text-primary" href="{{ url('edit-employee/'.$user->id) }}"> Edit </a>
+                                                        <a class="fw-bold text-dark" href="{{ url('edit-employee/'.$user->id) }}"> Edit <i class="fa-solid fa-pen-to-square text-primary fs-5"></i> </a>
                                                     </td>
                                                 </tr>
                                             @endif
@@ -54,11 +54,11 @@
                         </div>
                             
                         <div class="box table-container mb-4">
-                            <div class="title d-flex justify-content-between align-items-center pt-2">    
-                                <h4 class="m-0">Request Employee List</h4>
+                            <div class="title d-flex justify-content-between align-items-center py-2">    
+                                <h4 class="fw-bold m-0">Request Employee List</h4>
                             </div>
-                            <div class="table-responsive pt-3 mb-3">
-                                <table class="table table-dark table-striped">
+                            <div class="card table-responsive mb-3">
+                                <table class="table table-striped m-0">
                                     <thead>
                                         <tr class="text-center">
                                             <th scope="col">#</th>
@@ -76,7 +76,7 @@
                                                         <td>{{ $user->phone }}</td>
                                                         <td>{{ $user->email }}</td>
                                                         <td>
-                                                            <a class="text-primary" href="{{ url('create-employee/'.$user->id) }}"> Register </a>
+                                                            <a class="fw-bold text-primary" href="{{ url('create-employee/'.$user->id) }}"> Register</a>
                                                         </td>
                                                     </tr>
                                                 @endif

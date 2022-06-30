@@ -8,7 +8,7 @@
     @endif
 
     <div class="row py-3">
-        <div class="content col-md-7 col-12 me-3 my-3">
+        <div class="content col-md-7 col-12 my-3">
             <div class="head d-flex justify-content-between align-items-center">
                 <h4 class="fw-bold m-0">Ticket Information</h4>
                 <a class="btn btn-danger" href="{{ url()->previous() }}"> Back </a>
@@ -71,17 +71,23 @@
                 </form>
             </div>
         </div>
-        <div class="col-md-4 ms-3 my-3">
-            <div class="side-navbar p-4">
-                <h4 class="fw-bold"> Company Description </h4> 
-                <br>
+        <div class="col-md-5 my-3">
+            <div class="content">
+                <div class="company border-bottom mb-1">
+                    <div class="logo">
+
+                    </div>
+                    <div class="name">
+                        <h4> {{ $ticket->partner->name }} <i class="fas fa-check-circle text-success"></i> </h4>
+                    </div>
+                </div>
                 <table class="table-borderless">
                     <tbody>
                         <tr>
-                            <th class="col-md-6">Company Name:</th> <td>{{ $ticket->partner->name }} <i class="fas fa-check-circle text-success"></i></td>
+                            <th class="col-md-6">Company Name:</th> <td></td>
                         </tr>
-                        <tr class="border-bottom">
-                            <th>Desciption: </th> <td>{{ $ticket->partner->description }}</td>
+                        <tr class="align-baseline border-bottom">
+                            <th>Company Desciption: </th> <td>{{ $ticket->partner->description }}</td>
                         </tr>
                         <tr>
                             <th>Phone: </th> <td> {{ $ticket->partner->user->phone }}</td>
@@ -120,8 +126,8 @@
                         <tr>
                             <th>Office Location:</th> <td>{{ $ticket->partner->location->name }}</td>
                         </tr>
-                        <tr>
-                            <th>Office Address:</th> <td>{{ $ticket->partner->address }}</td>
+                        <tr class="border-bottom">
+                            <th class="align-baseline">Office Address:</th> <td>{{ $ticket->partner->address }}</td>
                         </tr>
                         <tr>
                             <th>Become a memeber since:</th> <td>{{ isset($ticket->partner->created_at) ? $ticket->partner->created_at->format('m / d / Y') : $ticket->partner->users->email }}</td></td>

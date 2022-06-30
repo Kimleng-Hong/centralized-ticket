@@ -17,7 +17,7 @@
                 <div class="body">
                     <div class="box table-container mb-4">
                         <div class="title d-flex justify-content-between align-items-center">    
-                            <h4 class="py-3">Partner Registration</h4>
+                            <h5 class="fw-bold pt-3">Partner Registration</h5>
                         </div>
                         <div class="table-responsive mb-3">
                             <table class="table table-dark table-striped">
@@ -37,7 +37,7 @@
                                             <td> {{ $user->phone }} </td>
                                             <td> {{ $user->email }} </td>
                                             <td>
-                                                <a href="{{ url('create-partner/'.$user->id) }}"> Register </a>
+                                                <a href="{{ url('create-partner/'.$user->id) }}" class='fw-bold btn btn-primary'> Register </a>
                                             </td>
                                             </tr>
                                         @endif                                          
@@ -49,7 +49,7 @@
 
                     <div class="box table-container mb-4">
                         <div class="title d-flex justify-content-between align-items-center">    
-                            <h4 class="py-3">Partner Approval</h4>
+                            <h5 class="fw-bold pt-3">Partner Approval</h5>
                         </div>
                         <div class="table-responsive mb-3">
                             <table class="table table-dark table-striped">
@@ -57,10 +57,10 @@
                                     <tr class="text-center">
                                         <th scope="col">ID</th>
                                         <th scope="col">Name</th>
-                                        {{-- <th scope="col">Description</th> --}}
                                         <th scope="col">Phone</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col" colspan="3">Action</th>
+                                        <th scope="col">Detail</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>    
@@ -69,27 +69,28 @@
                                             <tr class="text-center">
                                                 <td> {{ $user->id }}</td>
                                                 <td> {{ $user->partner->name }}</td>
-                                                {{-- <td> {{ $user->partner->description }}</td> --}}
                                                 <td> {{ $user->phone }} </td>
                                                 <td> {{ $user->email }} </td>
+                                                <td> <a class="fw-bold btn btn-primary" href="{{ url('show-partner/'.$user->id) }}"> Check  </a> </td>
                                                 <td>
-                                                    <a class="btn btn-primary" href="{{ url('show-partner/'.$user->id) }}"> <i class="fas fa-list-alt"></i> </a>
-                                                </td>
-                                                <td>
-                                                    <form method="POST" action="{{ url('approve-partner/'.$user->id)}}">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        
-                                                        <button name='partner_requesting' class="btn btn-success" type="submit" value='approved'><i class="fa-solid fa-circle-check"></i></button>
-                                                    </form>
-                                                </td>
-                                                <td>
-                                                    <form method="POST" action="{{ url('deny-partner/'.$user->id)}}">
-                                                        @csrf
-                                                        @method('PUT')
+                                                    <div class="d-flex justify-content-around">
+                                                        <div>
+                                                            <form method="POST" action="{{ url('approve-partner/'.$user->id)}}">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                
+                                                                <button name='partner_requesting' class="fw-bold btn btn-success px-1" type="submit" value='approved'>Approve</button>
+                                                            </form>
+                                                        </div>
+                                                        <div>
+                                                            <form method="POST" action="{{ url('deny-partner/'.$user->id)}}">
+                                                                @csrf
+                                                                @method('PUT')
 
-                                                        <button name='partner_requesting' class="btn btn-danger" type="submit" value='denied'><i class="fa-solid fa-circle-xmark"></i></button>
-                                                    </form>
+                                                                <button name='partner_requesting' class="fw-bold btn btn-danger" type="submit" value='denied'>Deny</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endif                                          

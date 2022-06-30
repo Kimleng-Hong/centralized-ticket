@@ -18,10 +18,10 @@
                     <div class="row">
                         <div class="box table-container mb-4">
                             <div class="title d-flex justify-content-between align-items-center pt-2">    
-                                <h4 class="m-0">Company Income</h4>
+                                <h4 class="m-0 py-2">Company Income</h4>
                             </div>
-                            <div class="table-responsive pt-3 mb-3">
-                                <table class="table table-striped">
+                            <div class="card table-responsive mb-3">
+                                <table class="table table-striped m-0">
                                     <thead>
                                         <tr class="text-center">
                                             <th scope="col">No</th>

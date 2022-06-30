@@ -9,12 +9,8 @@
                 <div class="alert alert-success">{{ session('status') }}</div>
             @endif
 
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    {{ __('Welcome Page') }}
-                </div>
+            <div class="welcome">
+                
             </div>
         </div>
     </div>
