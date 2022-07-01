@@ -9,12 +9,12 @@
                     <li class="nav-item me-2">
                         <a class="nav-link" aria-current="page" href="{{ url('/') }}"> Welcome </a>
                     </li>
-                    @guest
-                    @else
-                        <li class="nav-item me-2">
-                            <a class="nav-link py-2" aria-current="page" href="{{ url('/home') }}"> Home </a>
-                        </li>
-                    @endguest
+                @guest
+                @else
+                    <li class="nav-item me-2">
+                        <a class="nav-link py-2" aria-current="page" href="{{ url('/home') }}"> Home </a>
+                    </li>
+                @endguest
                     <li class="nav-item me-2">
                         <a class="nav-link" aria-current="page" href="{{ url('/list-ticket') }} "> Ticket </a>
                     </li>

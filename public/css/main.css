@@ -73,6 +73,10 @@ a {
 }
 /* navbar section */
 
+.welcome {
+    min-height: 85vh;
+}
+
 /* footer section */
 footer {
     width: 100%;

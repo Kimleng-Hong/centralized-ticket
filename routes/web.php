@@ -11,6 +11,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\TicketPurchaseController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -94,4 +95,4 @@ Route::get('/list-ticket', [TicketController::class, 'list']);
 Route::get('/buy-ticket/{id}', [TicketController::class, 'buy']); 
 Route::put('/approve-ticket/{id}', [TicketController::class, 'approve']);
 Route::put('/deny-ticket/{id}', [TicketController::class, 'deny']);
-
+Route::post('purchase-ticket/{id}', [TicketPurchaseController::class, 'store']);

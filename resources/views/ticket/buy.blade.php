@@ -49,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                <form class="d-flex align-items-end" method="POST" action="">
+                <form class="d-flex align-items-end" method="POST" action="{{ url('purchase-ticket/'.$ticket->id)}}">
                 @csrf
 
                     <div class="col-md-4">
@@ -63,7 +63,8 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <div class="col-md-4 d-flex flex-column justify-content-center align-items-center">
+                        <p class="fw-bold m-0"> price: <i class="fa-solid fa-dollar-sign text-success"></i>{{ $ticket->price }}</p>
                         <button type="submit" class="btn btn-success w-75 mx-2">
                             {{ __('Confirm') }}
                         </button>
@@ -78,7 +79,7 @@
 
                     </div>
                     <div class="name">
-                        <h4> {{ $ticket->partner->name }} <i class="fas fa-check-circle text-success"></i> </h4>
+                        <h4 class="fw-bold"> {{ $ticket->partner->name }} <i class="fas fa-check-circle text-success"></i> </h4>
                     </div>
                 </div>
                 <table class="table-borderless">

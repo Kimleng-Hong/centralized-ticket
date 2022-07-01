@@ -62,6 +62,10 @@
                                     {{ __('Login') }}
                                 </button>
                         </div>
+                        <div class="col-md-12 mt-3 d-flex justify-content-center border-top">
+                            <p class="text-md-end mt-2">Don't have an account?</p>
+                            <a class="text-md-start ps-1 mt-2" href="{{ route('register') }}"> Sign up </a>
+                        </div>
                     </form>
                 </div>
             </div>

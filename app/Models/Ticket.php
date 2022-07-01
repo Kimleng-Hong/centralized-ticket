@@ -28,4 +28,9 @@ class Ticket extends Model
     {
         return $this->belongsTo(Employee::class);
     }
+
+    public function purchase()
+    {
+        return $this->hasMany(TicketPurchase::class, 'ticket_id', 'id');
+    }
 }

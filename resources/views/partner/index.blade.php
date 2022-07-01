@@ -33,7 +33,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($purchases as $purchase)
+                                            @if ($purchase->ticket->partner->user->id == Auth::user()->id)
+                                                <tr class="text-center">
+                                                    <td>{{ $number }}</td>
+                                                    <td>{{ $purchase->ticket->name }}</td>
+                                                    <td>{{ $purchase->ref_number }}</td>
+                                                    <td>{{ $purchase->user->customer->first_name }} {{ $purchase->user->customer->last_name }}</td>
+                                                    <td>{{ $purchase->ticket->price}}</td>
+                                                    <td>{{ $purchase->purchase_date}}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
                                         <tr class="text-center">
+                                            <td></td>
                                             <td>1</td>
                                             <td>Ticket Customer6</td>
                                             <td>12300212</td>

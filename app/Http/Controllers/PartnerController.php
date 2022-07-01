@@ -7,6 +7,7 @@ use App\Models\Partner;
 use App\Models\Industry;
 use App\Models\Location;
 use App\Models\Ticket;
+use App\Models\TicketPurchase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -20,7 +21,9 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        return view('partner.index');
+        $number = 1;
+        $purchases = TicketPurchase::all();
+        return view('partner.index', compact('number', 'purchases'));
     }
 
     /**
@@ -56,6 +59,7 @@ class PartnerController extends Controller
         $partners->industry_id = $request->input('company_industry');
         $partners->location_id = $request->input('company_location');
         $partners->address = $request->input('company_address');
+        $partners->website = $request->input('company_website');
         $partners->facebook = $request->input('company_facebook');
         $partners->instagram = $request->input('company_instagram');
         $partners->linkedin = $request->input('company_linkedin');

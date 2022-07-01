@@ -28,8 +28,12 @@
                                         <div class="info d-flex flex-column justify-content-between col-md-10 p-2 ms-3">
                                             <div class="main">
                                                 <div class="name d-flex">
-                                                    <a class="fw-bold text-dark" href="{{ url('buy-ticket/'.$ticket->id) }}"> {{ $ticket->name }} </a>
-                                                    <p class="rounded-3 btn-success text-white px-1 mx-3">{{ $ticket->partner->industry->name }}</p>
+                                                    @guest
+                                                        <a class="fw-bold text-dark" href="{{ route('login') }}"> {{ $ticket->name }} </a>
+                                                    @else
+                                                        <a class="fw-bold text-dark" href="{{ url('buy-ticket/'.$ticket->id) }}"> {{ $ticket->name }} </a>
+                                                    @endguest
+                                                        <p class="rounded-3 btn-success text-white px-1 mx-3">{{ $ticket->partner->industry->name }}</p>
                                                 </div>
                                                 <p class="pe-2">{{ $ticket->description }}</p>
                                                 <p class="fw-bold text-dark"><i class="fas fa-location-arrow text-success"></i> {{ $ticket->partner->location->name }}</p>

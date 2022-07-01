@@ -30,7 +30,7 @@
                                             <div class="info d-flex justify-content-between col-md-10 p-2 ms-3 ">
                                                 <div class="main col-md-10 border-end border-dark pe-3">
                                                     <div class="name d-flex">
-                                                        <a class="fw-bold text-dark" href="#"> {{ $partner->partner->name }} </a>
+                                                        <a class="fw-bold text-dark" href="{{ url('show-partner/'.$partner->id) }}"> {{ $partner->partner->name }} </a>
                                                         <p class="rounded-3 btn-success text-white px-1 mx-3">{{ $partner->partner->industry->name }}</p>
                                                     </div>
                                                     <p class="description">{{ $partner->partner->description }}</p>
@@ -40,7 +40,7 @@
                                                 </div>
                                                 <div class="sub col-md-2 d-flex flex-column justify-content-evenly">
                                                     <div class="text-center">
-                                                        <a class="fw-bold text-dark" href="#"> Info <i class="fa-solid fa-file text-warning fs-5"></i> </a>
+                                                        <a class="fw-bold text-dark" href="{{ url('show-partner/'.$partner->id) }}"> Info <i class="fa-solid fa-file text-warning fs-5"></i> </a>
                                                     </div>
                                                     <div class=" text-center">
                                                         <a class="fw-bold text-dark" href="#"> Edit <i class="fa-solid fa-pen-to-square text-primary fs-5"></i> </a>

@@ -42,7 +42,8 @@
                                                     <td>{{ $user->phone }}</td>
                                                     <td>{{ $user->email }}</td>
                                                     <td>
-                                                        <a class="fw-bold text-dark" href="{{ url('edit-employee/'.$user->id) }}"> Edit <i class="fa-solid fa-pen-to-square text-primary fs-5"></i> </a>
+                                                        <a class="fw-bold text-dark pe-2 border-end border-dark" href="{{ url('edit-employee/'.$user->id) }}"> Edit <i class="fa-solid fa-pen-to-square text-primary fs-5"></i> </a>
+                                                        <a class="fw-bold text-dark ps-2" href="#"> Remove <i class="fa-solid fa-trash-can text-danger fs-5"></i> </a>
                                                     </td>
                                                 </tr>
                                             @endif
